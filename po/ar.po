@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome 2-24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 02:54+0100\n"
+"POT-Creation-Date: 2008-10-19 12:29+0100\n"
 "PO-Revision-Date: 2008-09-18 02:28+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Unsorted"
 msgstr "غير مصنّف"
 
-#: ../hamster/preferences.py:103 ../hamster/stats.py:46
+#: ../hamster/preferences.py:103 ../hamster/stats.py:47
 msgid "Name"
 msgstr "الاسم"
 
