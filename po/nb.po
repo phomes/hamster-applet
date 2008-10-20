@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-07 13:00+0200\n"
+"POT-Creation-Date: 2008-10-07 14:20+0200\n"
 "PO-Revision-Date: 2008-10-07 14:19+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norsk bokal <i18n-nb@lister.ping.uio.no>\n"
@@ -266,7 +266,7 @@ msgstr "Ny aktivitet"
 msgid "Update activity"
 msgstr "Oppdater aktivitet"
 
-#: ../hamster/applet.py:200
+#: ../hamster/applet.py:215 ../hamster/applet.py:283
 msgid "No activity"
 msgstr "Ingen aktivitet"
 
@@ -319,7 +319,9 @@ msgstr "navn"
 msgid ""
 "Overview for %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %(end_d)s, %"
 "(end_Y)s"
-msgstr "Oversikt for %(start_B)s %(start_d)s, %(start_Y)s - %(end_B)s %(end_d)s, %(end_Y)s"
+msgstr ""
+"Oversikt for %(start_B)s %(start_d)s, %(start_Y)s - %(end_B)s %(end_d)s, %"
+"(end_Y)s"
 
 #. overview label if start and end month do not match
 #. letter after prefixes (start_, end_) is the one of
