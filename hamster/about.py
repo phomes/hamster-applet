@@ -60,8 +60,13 @@ def show_about(parent):
         
     zupa = gtk.gdk.pixbuf_new_from_file(hamster_logo)
     about.set_logo(zupa)
+    
+    def on_destroy():
+        parent.about = None
 
     about.connect("response", lambda self, *args: self.destroy())
+    about.connect("destroy", lambda self, *args: on_destroy())
     about.set_screen(parent.get_screen())
     about.show_all()
+    parent.about = about
 
