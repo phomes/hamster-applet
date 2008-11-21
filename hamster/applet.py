@@ -67,6 +67,7 @@ class HamsterApplet(object):
         # load window of activity switcher and todays view
         self.glade = gtk.glade.XML(os.path.join(SHARED_DATA_DIR, "menu.glade"))
         self.window = self.glade.get_widget('hamster-window')
+        self.window.set_keep_above(True)
         
         # set up drop down menu
         self.activity_list = self.glade.get_widget('activity-list')
@@ -293,6 +294,11 @@ class HamsterApplet(object):
             self.activity_list.child.select_region(0, -1)
         else:
             self.activity_list.child.set_text('')
+
+        # doing unstick / stick here, because sometimes while switching
+        # between workplaces window still manages to dissappear
+        self.window.unstick()
+        self.window.stick() #show on all desktops
 
         gobject.idle_add(self._delayed_display)  
         
