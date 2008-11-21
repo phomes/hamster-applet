@@ -432,6 +432,7 @@ class StatsViewer:
             id = model[iter][0]
 
         self.get_widget('remove').set_sensitive(id != -1)
+        self.get_widget('edit').set_sensitive(id != -1)
 
         return True
 

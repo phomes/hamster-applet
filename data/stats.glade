@@ -95,6 +95,7 @@
             <child>
               <widget class="GtkToolButton" id="edit">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="tooltip_text" translatable="yes">Edit activity</property>
                 <property name="stock_id">gtk-edit</property>
                 <signal name="clicked" handler="on_edit_clicked"/>
