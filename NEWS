@@ -1,4 +1,20 @@
 ===============
+Version 2.24.2
+===============
+  Applet
+    * some checks to avoid users outsmarting poor hamster
+    * fixed couple of warnings
+    * fixed unicode datestring translation problem (report by)
+    * Several minor UI fixes (disable buttons that shouldn't be enabled,
+      set icon for all windows, show applet dropwdown on all desktops)
+      
+  Updated translations
+    * el (Nick Agianniotis)
+    * zh_CN (Ray Wang)
+
+
+
+===============
 Version 2.24.0
 ===============
   Applet
