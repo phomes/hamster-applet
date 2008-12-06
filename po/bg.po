@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hamster-applet trunk\n"
+"Project-Id-Version: hamster-applet gnome-2-24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-16 08:04+0300\n"
-"PO-Revision-Date: 2008-09-16 08:03+0300\n"
+"POT-Creation-Date: 2008-12-06 05:29+0200\n"
+"PO-Revision-Date: 2008-12-06 05:21+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -251,11 +251,11 @@ msgstr ""
 "Научете повече за нас на http://gnome.cult.bg\n"
 "Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
-#: ../hamster/preferences.py:56 ../hamster/db.py:256 ../hamster/reports.py:101
+#: ../hamster/preferences.py:56 ../hamster/db.py:263 ../hamster/reports.py:101
 msgid "Unsorted"
 msgstr "Без подредба"
 
-#: ../hamster/preferences.py:103 ../hamster/stats.py:46
+#: ../hamster/preferences.py:103 ../hamster/stats.py:47
 msgid "Name"
 msgstr "Име"
 
@@ -275,48 +275,48 @@ msgstr "Нова дейност"
 msgid "Update activity"
 msgstr "Обновяване на дейността"
 
-#: ../hamster/applet.py:200
+#: ../hamster/applet.py:204
 msgid "No activity"
 msgstr "Без дейност"
 
 #. defaults
-#: ../hamster/db.py:403
+#: ../hamster/db.py:410
 msgid "Work"
 msgstr "Работа"
 
-#: ../hamster/db.py:404
+#: ../hamster/db.py:411
 msgid "Reading news"
 msgstr "Четене на новини"
 
-#: ../hamster/db.py:405
+#: ../hamster/db.py:412
 msgid "Checking stocks"
 msgstr "Проверка на фондовата борса"
 
-#: ../hamster/db.py:406
+#: ../hamster/db.py:413
 msgid "Super secret project X"
 msgstr "Супер тайния проект Ь"
 
-#: ../hamster/db.py:407
+#: ../hamster/db.py:414
 msgid "World domination"
 msgstr "Световно господство"
 
-#: ../hamster/db.py:409
+#: ../hamster/db.py:416
 msgid "Day to day"
 msgstr "Ежедневни"
 
-#: ../hamster/db.py:410
+#: ../hamster/db.py:417
 msgid "Lunch"
 msgstr "Обяд"
 
-#: ../hamster/db.py:411
+#: ../hamster/db.py:418
 msgid "Watering flowers"
 msgstr "Поливане на цветя"
 
-#: ../hamster/db.py:412
+#: ../hamster/db.py:419
 msgid "Doing handstands"
 msgstr "На челна стойка"
 
-#: ../hamster/db.py:588 ../hamster/db.py:592
+#: ../hamster/db.py:595 ../hamster/db.py:599
 msgid "name"
 msgstr "име"
 
@@ -345,7 +345,7 @@ msgstr "Преглед: %(start_d)s %(start_B)s — %(end_d)s %(end_B)s %(end_Y)
 #: ../hamster/reports.py:33 ../hamster/stats.py:284
 #, python-format
 msgid "Overview for %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
-msgstr "Преглед: %(start_d)s — %(end_d)s %(end_B)s %(end_Y)s"
+msgstr "Преглед: %(start_B)s %(start_d)s — %(end_d)s, %(end_Y)s"
 
 #. overview label for single day
 #. letter after prefixes (start_, end_) is the one of
