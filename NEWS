@@ -1,4 +1,13 @@
 ===============
+Version 2.24.3
+===============
+  Applet
+    * Reverse the sqlite check to accomodate for python 2.6 and 3.0
+      
+  Updated translations
+    * bg (Alexander Shopov)
+
+===============
 Version 2.24.2
 ===============
   Applet
