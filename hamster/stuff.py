@@ -68,21 +68,10 @@ class ExpanderColumn(gtk.TreeViewColumn):
 
 
 def format_duration(minutes):
-    if minutes == None:
+    if minutes:
+        return "%02d:%02d" % (minutes / 60, minutes % 60)
+    else:
         return None
-    
-    hours = minutes / 60
-    days = hours / 24
-    hours %= 24
-    minutes = minutes % 60
-    formatted_duration = ""
-    
-    #TODO - convert to list comprehension or that other thing
-    if days > 0:
-        formatted_duration += "%d:" % days
-    formatted_duration += "%02d:%02d" % (hours, minutes)
-            
-    return formatted_duration
 
 def dateDict(date, prefix):
     """converts date into dictionary, having prefix for all the keys"""
