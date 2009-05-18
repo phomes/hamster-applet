@@ -234,6 +234,7 @@ class HamsterApplet(object):
         
         edit_cell = gtk.CellRendererPixbuf()
         edit_cell.set_property("stock_id", "gtk-edit")
+        edit_cell.set_property("mode", gtk.CELL_RENDERER_MODE_ACTIVATABLE)
         self.edit_column = gtk.TreeViewColumn("", edit_cell)
         self.treeview.append_column(self.edit_column)
 
@@ -609,18 +610,35 @@ class HamsterApplet(object):
         self.add_fact(activity_name)
 
     """listview events"""
-    def on_todays_keys(self, tree, event_key):
-        if (event_key.keyval == gtk.keysyms.Delete):
+    def on_todays_keys(self, tree, event):
+        if (event.keyval == gtk.keysyms.Delete):
             self.delete_selected()
             return True
+        elif (event.keyval == gtk.keysyms.e  \
+              and event.state & gtk.gdk.CONTROL_MASK):
+            self._open_edit_activity()
+            return True
+            
         return False
     
-    def on_today_row_activated(self, tree, path, column):
-        selection = tree.get_selection()
+    def _open_edit_activity(self):
+        """opens activity editor for selected row"""
+        selection = self.treeview.get_selection()
         (model, iter) = selection.get_selected()
-        activity_name = model[iter][1].decode('utf8', 'replace')
-        if activity_name:
-            self.add_fact(activity_name)
+        fact_id = model[iter][0]
+            
+        custom_fact = CustomFactController(None, fact_id)
+        custom_fact.show()        
+    
+    def on_today_row_activated(self, tree, path, column):
+        if column == self.edit_column:
+            self._open_edit_activity()
+        else:
+            selection = tree.get_selection()
+            (model, iter) = selection.get_selected()
+            activity_name = model[iter][1].decode('utf8', 'replace')
+            if activity_name:
+                self.add_fact(activity_name)
     
     def add_fact(self, activity_name):
         if self.last_activity and self.last_activity['start_time'] != datetime.date.today():
