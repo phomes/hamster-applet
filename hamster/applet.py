@@ -638,6 +638,11 @@ class HamsterApplet(object):
             (model, iter) = selection.get_selected()
             activity_name = model[iter][1].decode('utf8', 'replace')
             if activity_name:
+                description = model[iter][5]
+                if description:
+                    description = description.decode('utf8', 'replace')
+                    activity_name = "%s, %s" % (activity_name, description)
+                    
                 self.add_fact(activity_name)
     
     def add_fact(self, activity_name):
