@@ -278,13 +278,13 @@ class Storage(hamster.storage.Storage):
             
             if last_fact['end_time'] == None and last_fact['start_time'] < start_time:
                 #if this is the same, ongoing activity, then there is no need to create another one
-                if last_fact['activity_id'] == activity_id:
+                if not description and last_fact['activity_id'] == activity_id:
                     return last_fact
-                
                 
                 delta = (start_time - last_fact['start_time'])
             
-                if 60 >= delta.seconds >= 0:
+                if not description and not last_fact["description"] \
+                   and 60 >= delta.seconds >= 0:
                     self.__remove_fact(last_fact['id'])
                     start_time = last_fact['start_time']
 
