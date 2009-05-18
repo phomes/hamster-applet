@@ -1,4 +1,26 @@
 ===============
+Version 2.26.2
+===============
+
+ Applet
+   * fix utf-8 problems when switching activity by double-clicking
+   * allow to switch to same activity, if description is provided
+   * now the edit icon in drop-down window is keyboard-accessible
+   * re-enabled evolution task import since the problem has been fixed
+   * do not round to days in reports (because of 24h/8h day ambiguity)
+   * fix a rare bug that get's rid of activity in midnight
+ 
+ Updated translations
+   * te (Krishna Babu K)
+   * et (Ivar Smolin)
+   * es (Juanje Ojeda Croissier)
+   * zh_CN (Ray Wang)
+   * kn (Shankar Prasad)
+   * gl (Suso Baleato)
+   * ar (Djihed Afifi)
+ 
+
+===============
 Version 2.26.0
 ===============
  Applet - changes
