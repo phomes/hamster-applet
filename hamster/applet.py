@@ -346,6 +346,9 @@ class HamsterApplet(object):
         completion = gtk.EntryCompletion()
         completion.set_model(self.activities)
 
+        completion.set_text_column(2)
+        completion.clear()
+
         activity_cell = gtk.CellRendererText()
         completion.pack_start(activity_cell, True)
         completion.add_attribute(activity_cell, 'text', 0)
@@ -354,16 +357,6 @@ class HamsterApplet(object):
         category_cell = CategoryCell()  
         completion.pack_start(category_cell, False)
         completion.add_attribute(category_cell, 'text', 1)
-
-
-        def match_func(completion, key, iter):
-            model = completion.get_model()
-            text = model.get_value(iter, 2)
-            if text and text.startswith(key):
-                return True
-            return False
-
-        completion.set_match_func(match_func)
         completion.set_minimum_key_length(1)
         completion.set_inline_completion(True)
 
@@ -484,12 +477,15 @@ class HamsterApplet(object):
         #first populate the autocomplete - contains all entries in lowercase
         self.activities.clear()
         all_activities = storage.get_autocomplete_activities()
+
         for activity in all_activities:
-            activity_category = "%s@%s" % (activity['name'], activity['category'])
+            activity_category = activity['name']
+            if activity['category']:
+                activity_category += "@%s" % activity['category']
+                
             self.activities.append([activity['name'],
                                     activity['category'],
                                     activity_category])
-
 
         #now populate the menu - contains only categorized entries
         store = self.activity_list.get_model()
@@ -499,10 +495,14 @@ class HamsterApplet(object):
         categorized_activities = storage.get_sorted_activities()
 
         for activity in categorized_activities:
-            activity_category = "%s@%s" % (activity['name'], activity['category'])
+            activity_category = activity['name']
+            if activity['category']:
+                activity_category += "@%s" % activity['category']
+
             item = store.append([activity['name'],
                                  activity['category'],
                                  activity_category])
+
 
         # finally add TODO tasks from evolution to both lists
         tasks = hamster.eds.get_eds_tasks()
