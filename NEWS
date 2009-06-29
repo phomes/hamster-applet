@@ -1,4 +1,16 @@
 ===============
+Version 2.26.3
+===============
+
+ Applet
+   * utf-8 fixes in graphs and autocomplete (bug 585420 and bug 583851)
+    
+ Updated translations
+   * bn_IN (Runa Bhattacharjee)
+   * ca@valencia (Gil Forcada)
+   * uk (Maxim V. Dziumanenko)
+
+===============
 Version 2.26.2
 ===============
 
