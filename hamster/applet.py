@@ -636,14 +636,18 @@ class HamsterApplet(object):
         else:
             selection = tree.get_selection()
             (model, iter) = selection.get_selected()
-            activity_name = model[iter][1].decode('utf8', 'replace')
-            if activity_name:
-                description = model[iter][5]
-                if description:
-                    description = description.decode('utf8', 'replace')
-                    activity_name = "%s, %s" % (activity_name, description)
-                    
-                self.add_fact(activity_name)
+
+            fact = model[iter][6]
+            if fact:
+                activity = fact['name']
+                if fact['category']:
+                    activity = '%s@%s' % (activity, fact['category'])
+
+                if fact['description']:
+                    activity = "%s, %s" % (activity, fact['description'])
+                                        
+                print activity
+                #self.add_fact(activity)
     
     def add_fact(self, activity_name):
         if self.last_activity and self.last_activity['start_time'] != datetime.date.today():
