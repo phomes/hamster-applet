@@ -24,6 +24,7 @@
 import gtk
 from hamster import storage
 import pango
+import gobject
 from pango import ELLIPSIZE_END
 
 import datetime as dt
@@ -123,7 +124,7 @@ class DayStore(object):
         date = date or dt.date.today()
         
         # ID, Time, Name, Duration, Date, Description
-        self.fact_store = gtk.ListStore(int, str, str, str, str, str)
+        self.fact_store = gtk.ListStore(int, str, str, str, str, str, gobject.TYPE_PYOBJECT)
         
         self.facts = storage.get_facts(date)
         self.totals = {}
@@ -152,5 +153,6 @@ class DayStore(object):
                                     fact["start_time"].strftime("%H:%M"), 
                                     current_duration,
                                     fact["start_time"].strftime("%Y%m%d"),
-                                    escape_pango(fact["description"])])
+                                    escape_pango(fact["description"]),
+                                    fact])
 
