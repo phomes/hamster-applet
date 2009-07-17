@@ -646,8 +646,7 @@ class HamsterApplet(object):
                 if fact['description']:
                     activity = "%s, %s" % (activity, fact['description'])
                                         
-                print activity
-                #self.add_fact(activity)
+                self.add_fact(activity)
     
     def add_fact(self, activity_name):
         if self.last_activity and self.last_activity['start_time'] != datetime.date.today():
