@@ -376,7 +376,7 @@ msgstr "%(category)s: %(duration)s"
 #, python-format
 #| msgid "%dh"
 msgid "%sh"
-msgstr "%dч"
+msgstr "%sч"
 
 #. unsorted category
 #: ../hamster/applet.py:601
