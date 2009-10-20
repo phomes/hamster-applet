@@ -1,4 +1,15 @@
 ===============
+Version 2.28.1
+===============
+ * avoid getting activities from the future (bug 596617)
+ 
+ Updated translations:
+  * ca (Gil Forcada)
+  * en_GB (Bruce Cowan)
+  * ro (Mișu Moldovan)
+  * ru (Dmitriy Kodanev)
+
+===============
 Version 2.28.0
 ===============
  Updated translations:
