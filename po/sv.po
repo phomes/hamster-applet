@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-01 00:13+0200\n"
-"PO-Revision-Date: 2009-09-01 00:13+0100\n"
+"POT-Creation-Date: 2009-10-30 18:26+0100\n"
+"PO-Revision-Date: 2009-10-30 18:27+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -362,9 +362,9 @@ msgstr "%sh"
 #: ../hamster/db.py:226
 #: ../hamster/db.py:243
 #: ../hamster/db.py:248
-#: ../hamster/db.py:465
-#: ../hamster/db.py:538
-#: ../hamster/edit_activity.py:368
+#: ../hamster/db.py:470
+#: ../hamster/db.py:543
+#: ../hamster/edit_activity.py:370
 #: ../hamster/preferences.py:56
 #: ../hamster/reports.py:54
 #: ../hamster/reports.py:91
@@ -402,43 +402,43 @@ msgstr ""
 "        "
 
 #. defaults
-#: ../hamster/db.py:728
+#: ../hamster/db.py:733
 msgid "Work"
 msgstr "Arbete"
 
-#: ../hamster/db.py:729
+#: ../hamster/db.py:734
 msgid "Reading news"
 msgstr "Läser nyheter"
 
-#: ../hamster/db.py:730
+#: ../hamster/db.py:735
 msgid "Checking stocks"
 msgstr "Kontrollerar aktier"
 
-#: ../hamster/db.py:731
+#: ../hamster/db.py:736
 msgid "Super secret project X"
 msgstr "Superhemligt projekt X"
 
-#: ../hamster/db.py:732
+#: ../hamster/db.py:737
 msgid "World domination"
 msgstr "Världsherravälde"
 
-#: ../hamster/db.py:734
+#: ../hamster/db.py:739
 msgid "Day-to-day"
 msgstr "Dag för dag"
 
-#: ../hamster/db.py:735
+#: ../hamster/db.py:740
 msgid "Lunch"
 msgstr "Lunch"
 
-#: ../hamster/db.py:736
+#: ../hamster/db.py:741
 msgid "Watering flowers"
 msgstr "Vattna blommorna"
 
-#: ../hamster/db.py:737
+#: ../hamster/db.py:742
 msgid "Doing handstands"
 msgstr "Stå på händerna"
 
-#: ../hamster/edit_activity.py:385
+#: ../hamster/edit_activity.py:387
 msgid "Update activity"
 msgstr "Uppdatera aktivitet"
 
@@ -624,10 +624,9 @@ msgstr "%d %b, %Y"
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
 #: ../hamster/stats.py:662
-#, python-format
 msgctxt "first record"
-msgid "%(b)s %(d)s"
-msgstr "%(d)s %(b)s"
+msgid "%b %d"
+msgstr "%d %b"
 
 #: ../hamster/stats.py:664
 #, python-format
@@ -747,6 +746,9 @@ msgstr "%dmin"
 msgid "%dh %dmin"
 msgstr "%dh %dmin"
 
+#~ msgctxt "first record"
+#~ msgid "%(b)s %(d)s"
+#~ msgstr "%(d)s %(b)s"
 #~ msgid "Remind also when no activity is set"
 #~ msgstr "Påminn även när ingen aktivitet är inställd"
 #~ msgid "%.1fh"
