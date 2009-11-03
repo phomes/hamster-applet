@@ -4,15 +4,15 @@
 # Matthias Mailänder https://launchpad.net/~mailaender, 2008
 # Hendrik Richter <hendrikr@gnome.org>, 2008, 2009.
 # Mario Blättermann <mariobl@gnome.org>, 2009.
+# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Hamster 0.5\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=hamster-applet&component=general\n"
-"POT-Creation-Date: 2009-09-04 14:07+0000\n"
-"PO-Revision-Date: 2009-09-04 23:14+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-04 00:36+0100\n"
+"PO-Revision-Date: 2009-11-04 00:42+0100\n"
+"Last-Translator: Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,7 +197,7 @@ msgid ""
 "<span size=\"small\" >Type in an activity and hit Enter to start tracking!</"
 "span>"
 msgstr ""
-"<span size=\"small\" >Geben Sie eine Tätigkeit ein und drücken Sie die "
+"<span size=\"small\" >Geben Sie eine Tätigkeit ein und drücken Sie die\n"
 "Eingabetaste, um mit der Zeiterfassung zu beginnen!</span>"
 
 #: ../data/applet.ui.h:2
@@ -365,8 +365,8 @@ msgstr "%sh"
 
 #. unsorted category
 #: ../hamster/applet.py:601 ../hamster/db.py:226 ../hamster/db.py:243
-#: ../hamster/db.py:248 ../hamster/db.py:465 ../hamster/db.py:538
-#: ../hamster/edit_activity.py:368 ../hamster/preferences.py:56
+#: ../hamster/db.py:248 ../hamster/db.py:470 ../hamster/db.py:543
+#: ../hamster/edit_activity.py:370 ../hamster/preferences.py:56
 #: ../hamster/reports.py:54 ../hamster/reports.py:91 ../hamster/reports.py:248
 #: ../hamster/stuff.py:94
 msgid "Unsorted"
@@ -412,43 +412,43 @@ msgstr ""
 "        "
 
 #. defaults
-#: ../hamster/db.py:728
+#: ../hamster/db.py:733
 msgid "Work"
 msgstr "Arbeit"
 
-#: ../hamster/db.py:729
+#: ../hamster/db.py:734
 msgid "Reading news"
 msgstr "Nachrichten lesen"
 
-#: ../hamster/db.py:730
+#: ../hamster/db.py:735
 msgid "Checking stocks"
 msgstr "Aktienkurse überprüfen"
 
-#: ../hamster/db.py:731
+#: ../hamster/db.py:736
 msgid "Super secret project X"
 msgstr "Supergeheimprojekt X"
 
-#: ../hamster/db.py:732
+#: ../hamster/db.py:737
 msgid "World domination"
 msgstr "Weltherrschaft"
 
-#: ../hamster/db.py:734
+#: ../hamster/db.py:739
 msgid "Day-to-day"
 msgstr "Tag für Tag"
 
-#: ../hamster/db.py:735
+#: ../hamster/db.py:740
 msgid "Lunch"
 msgstr "Mittagessen"
 
-#: ../hamster/db.py:736
+#: ../hamster/db.py:741
 msgid "Watering flowers"
 msgstr "Blumen gießen"
 
-#: ../hamster/db.py:737
+#: ../hamster/db.py:742
 msgid "Doing handstands"
 msgstr "Handstand machen"
 
-#: ../hamster/edit_activity.py:385
+#: ../hamster/edit_activity.py:387
 msgid "Update activity"
 msgstr "Tätigkeit aktualisieren"
 
@@ -632,10 +632,9 @@ msgstr "%d.%b.%Y"
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
 #: ../hamster/stats.py:662
-#, python-format
 msgctxt "first record"
-msgid "%(b)s %(d)s"
-msgstr "%(d)s.%(b)s"
+msgid "%b %d"
+msgstr "%d.%b."
 
 #: ../hamster/stats.py:664
 #, python-format
@@ -773,6 +772,10 @@ msgstr "%dmin"
 #, python-format
 msgid "%dh %dmin"
 msgstr "%dh %dmin"
+
+#~ msgctxt "first record"
+#~ msgid "%(b)s %(d)s"
+#~ msgstr "%(d)s.%(b)s"
 
 #~ msgid "Move _Down"
 #~ msgstr "He_runter bewegen"
