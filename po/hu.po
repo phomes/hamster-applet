@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-10 01:34+0200\n"
-"PO-Revision-Date: 2009-09-10 01:33+0200\n"
+"POT-Creation-Date: 2009-11-03 20:13+0100\n"
+"PO-Revision-Date: 2009-11-03 20:13+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
 "MIME-Version: 1.0\n"
@@ -149,8 +149,7 @@ msgid "to"
 msgstr "eddig:"
 
 #: ../data/hamster-applet.schemas.in.h:1
-msgid ""
-"Also remind every notify_interval minutes if no activity has been started."
+msgid "Also remind every notify_interval minutes if no activity has been started."
 msgstr ""
 "Emlékeztessen notify_interval percenként akkor is, ha nincs elkezdve "
 "tevékenység."
@@ -198,8 +197,7 @@ msgstr ""
 "billentyűt a nyilvántartás megkezdéséhez!</span>"
 
 #: ../data/applet.ui.h:2
-msgid ""
-"<span size=\"small\" color=\"blue\" underline=\"single\">Tell me more</span>"
+msgid "<span size=\"small\" color=\"blue\" underline=\"single\">Tell me more</span>"
 msgstr ""
 "<span size=\"small\" color=\"blue\" underline=\"single\">Áruljon el többet</"
 "span>"
@@ -359,8 +357,8 @@ msgstr "%só"
 
 #. unsorted category
 #: ../hamster/applet.py:601 ../hamster/db.py:226 ../hamster/db.py:243
-#: ../hamster/db.py:248 ../hamster/db.py:465 ../hamster/db.py:538
-#: ../hamster/edit_activity.py:368 ../hamster/preferences.py:56
+#: ../hamster/db.py:248 ../hamster/db.py:470 ../hamster/db.py:543
+#: ../hamster/edit_activity.py:370 ../hamster/preferences.py:56
 #: ../hamster/reports.py:54 ../hamster/reports.py:91 ../hamster/reports.py:248
 #: ../hamster/stuff.py:94
 msgid "Unsorted"
@@ -405,43 +403,43 @@ msgstr ""
 "        "
 
 #. defaults
-#: ../hamster/db.py:728
+#: ../hamster/db.py:733
 msgid "Work"
 msgstr "Munka"
 
-#: ../hamster/db.py:729
+#: ../hamster/db.py:734
 msgid "Reading news"
 msgstr "Hírek olvasása"
 
-#: ../hamster/db.py:730
+#: ../hamster/db.py:735
 msgid "Checking stocks"
 msgstr "Árfolyamok ellenőrzése"
 
-#: ../hamster/db.py:731
+#: ../hamster/db.py:736
 msgid "Super secret project X"
 msgstr "A szupertitkos X projekt"
 
-#: ../hamster/db.py:732
+#: ../hamster/db.py:737
 msgid "World domination"
 msgstr "Világuralom"
 
-#: ../hamster/db.py:734
+#: ../hamster/db.py:739
 msgid "Day-to-day"
 msgstr "Mindennapi"
 
-#: ../hamster/db.py:735
+#: ../hamster/db.py:740
 msgid "Lunch"
 msgstr "Ebéd"
 
-#: ../hamster/db.py:736
+#: ../hamster/db.py:741
 msgid "Watering flowers"
 msgstr "Virágok meglocsolása"
 
-#: ../hamster/db.py:737
+#: ../hamster/db.py:742
 msgid "Doing handstands"
 msgstr "Kézenállás"
 
-#: ../hamster/edit_activity.py:385
+#: ../hamster/edit_activity.py:387
 msgid "Update activity"
 msgstr "Tevékenység frissítése"
 
@@ -623,10 +621,9 @@ msgstr "%Y. %b %e."
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
 #: ../hamster/stats.py:662
-#, python-format
 msgctxt "first record"
-msgid "%(b)s %(d)s"
-msgstr "%(b)s %(d)s"
+msgid "%b %d"
+msgstr "%b %d"
 
 #: ../hamster/stats.py:664
 #, python-format
@@ -661,8 +658,7 @@ msgstr "%Y. %b %e."
 #: ../hamster/stats.py:705
 #, python-format
 msgid "Longest continuous work happened on %(date)s and was %(hours)s hour."
-msgid_plural ""
-"Longest continuous work happened on %(date)s and was %(hours)s hours."
+msgid_plural "Longest continuous work happened on %(date)s and was %(hours)s hours."
 msgstr[0] ""
 "A leghosszabb folyamatos munka ekkor történt: %(date)s és %(hours)s órán át "
 "tartott."
@@ -693,8 +689,7 @@ msgstr ""
 
 #: ../hamster/stats.py:738
 #, python-format
-msgid ""
-"With %s percent of all facts starting after 11pm you seem to be a night owl."
+msgid "With %s percent of all facts starting after 11pm you seem to be a night owl."
 msgstr ""
 "Mivel az összes tevékenységeinek %s százaléka este 11 óra után kezdődik, "
 "ezért Ön valószínűleg egy éjjeli bagoly."
@@ -764,3 +759,4 @@ msgstr "%dp"
 #, python-format
 msgid "%dh %dmin"
 msgstr "%dó %dp"
+
