@@ -329,30 +329,31 @@ class BarChart(Chart):
 
             bar_start = 0
             base_color = self.bar_base_color or (220, 220, 220)
-            bar_x = self.graph_x + bar_width * i + gap
+            bar_x = round(self.graph_x + bar_width * i + gap)
 
             if self.stack_keys:
                 for j in range(len(self.integrators[i])):
                     factor = self.integrators[i][j].value
     
                     if factor > 0:
-                        bar_size = max_bar_size * factor
+                        bar_size = round(max_bar_size * factor)
                         bar_start += bar_size
                         
                         self.draw_bar(bar_x,
                                       self.graph_height - bar_start,
-                                      bar_width - (gap * 2),
+                                      round(bar_width - (gap * 2)),
                                       bar_size,
                                       self.get_bar_color(j))
             else:
                 factor = self.integrators[i].value
-                bar_size = max_bar_size * factor
+                bar_size = round(max_bar_size * factor)
                 bar_start = bar_size
 
                 self.draw_bar(bar_x,
                               self.graph_y + self.graph_height - bar_size,
-                              bar_width - (gap * 2),
-                              bar_size, base_color)
+                              round(bar_width - (gap * 2)),
+                              bar_size,
+                              base_color)
 
         #fill with white background (necessary for those dragging cases)
         if self.background:
@@ -529,8 +530,7 @@ class HorizontalBarChart(Chart):
                 bar_size = round(max_bar_size * factor)
                 bar_start = bar_size
 
-                bar_height = bar_width - (gap * 2)
-                
+                bar_height = round(bar_width - (gap * 2))
                 self.draw_bar(self.graph_x, bar_y, bar_size, bar_height,
                                                                      base_color)
 
