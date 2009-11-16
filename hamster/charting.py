@@ -506,7 +506,7 @@ class HorizontalBarChart(Chart):
 
             gap = bar_width * 0.05
 
-            bar_y = self.graph_y + (bar_width * i) + gap
+            bar_y = round(self.graph_y + (bar_width * i) + gap)
 
             last_color = (255,255,255)
 
@@ -514,8 +514,8 @@ class HorizontalBarChart(Chart):
                 bar_start = 0
                 for j, factor in enumerate(self.integrators[i]):
                     if factor.value > 0:
-                        bar_size = max_bar_size * factor.value
-                        bar_height = bar_width - (gap * 2)
+                        bar_size = round(max_bar_size * factor.value)
+                        bar_height = round(bar_width - (gap * 2))
                         
                         last_color = self.get_bar_color(j)
                         self.draw_bar(self.graph_x + bar_start,
@@ -526,7 +526,7 @@ class HorizontalBarChart(Chart):
                         bar_start += bar_size
             else:
                 factor = self.integrators[i].value
-                bar_size = max_bar_size * factor
+                bar_size = round(max_bar_size * factor)
                 bar_start = bar_size
 
                 bar_height = bar_width - (gap * 2)
@@ -643,17 +643,17 @@ class HorizontalDayChart(Chart):
 
             gap = bar_width * 0.05
 
-            bar_y = self.graph_y + (bar_width * i) + gap
+            bar_y = round(self.graph_y + (bar_width * i) + gap)
 
             
-            bar_height = bar_width - (gap * 2)
+            bar_height = round(bar_width - (gap * 2))
             
             if isinstance(self.data[i], list) == False:
                 self.data[i] = [self.data[i]]
             
             for row in self.data[i]:
-                bar_x = (row[0]- start_hour) * factor
-                bar_size = (row[1] - start_hour) * factor - bar_x
+                bar_x = round((row[0]- start_hour) * factor)
+                bar_size = round((row[1] - start_hour) * factor - bar_x)
                 
                 self.draw_bar(self.graph_x + bar_x,
                               bar_y,
