@@ -46,13 +46,11 @@ for module in (gettext, locale):
     if hasattr(module, 'bind_textdomain_codeset'):
         module.bind_textdomain_codeset('hamster-applet','UTF-8')
 
-
-from hamster.applet import HamsterApplet
-
 def applet_factory(applet, iid):
     applet.connect("destroy", on_destroy)
     applet.set_applet_flags(gnomeapplet.EXPAND_MINOR)
 
+    from hamster.applet import HamsterApplet    
     hamster_applet = HamsterApplet(applet)
 
     applet.show_all()
