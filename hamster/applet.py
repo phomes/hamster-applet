@@ -126,9 +126,9 @@ class PanelButton(gtk.ToggleButton):
                 label = "%s\n%s" % (self.activity, self.duration)
             else:
                 label = "%s %s" % (self.activity, self.duration)
-        
-        label = stuff.escape_pango(label)
-        label = '<span gravity=\"south\">' + label + '</span>'
+
+        label = '<span gravity="south">%s</span>' % stuff.escape_pango(label)
+        self.label.set_markup("") #clear - seems to fix the warning
         self.label.set_markup(label)
 
     def get_pos(self):
