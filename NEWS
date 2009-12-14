@@ -1,4 +1,24 @@
 ===============
+Version 2.28.2
+===============
+ * unbroke dbus idle signal
+ * fixed bug with charts not appearing on some boxes
+ * minor fixes to reporting in general (fonts, layout, automatic file extension)
+ * avoid popup flicker
+ * fixed cause for merge errors due to microseconds
+
+ Updated translations:
+  * ca (Gil Forcada)
+  * cs (Adrian Guniš)
+  * de (Christian Kirbach)
+  * et (Ivar Smolin)
+  * fr (Claude Paroz)
+  * hu (Gabor Kelemen)
+  * it (Milo Casagrande)
+  * sl (Matej Urbančič)
+  * sv (Daniel Nylander)
+
+===============
 Version 2.28.1
 ===============
  * avoid getting activities from the future (bug 596617)
