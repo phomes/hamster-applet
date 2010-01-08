@@ -874,10 +874,14 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
     def do_charts(self, facts):
         all_categories = self.popular_categories
         
-        
         #the single "totals" (by category) bar
-        category_sums = stuff.totals(facts, lambda fact: fact["category"],
-                      lambda fact: stuff.duration_minutes(fact["delta"]) / 60.0)
+        category_sums = stuff.totals(facts,
+                                     lambda fact: fact["category"],
+                                     lambda fact: fact["delta"].seconds + fact["delta"].days * 24 * 60 * 60)
+        
+        for sum in category_sums:
+            category_sums[sum] = category_sums[sum] / 60 / 60.0
+            
         category_totals = [category_sums.get(cat, 0)
                                                       for cat in all_categories]
         category_keys = ["%s %.1f" % (cat, category_sums.get(cat, 0.0))
@@ -891,9 +895,13 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
                     for i in range((self.end_date - self.start_date).days  + 1)]        
 
         by_date_cat = stuff.totals(facts,
-                                   lambda fact: (fact["date"],
-                                                 fact["category"]),
-                                   lambda fact: stuff.duration_minutes(fact["delta"]) / 60.0)
+                                   lambda fact: (fact["date"], fact["category"]),
+                                   lambda fact: fact["delta"].seconds + fact["delta"].days * 24 * 60 * 60)
+
+        for sum in by_date_cat:
+            by_date_cat[sum] = by_date_cat[sum] / 60 / 60.0
+
+
         res = [[by_date_cat.get((day, cat), 0)
                                  for cat in all_categories] for day in all_days]
 
@@ -912,15 +920,18 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
 
         #totals by activity, disguised under a stacked bar chart to get category colors
         activity_sums = stuff.totals(facts,
-                                     lambda fact: (fact["name"],
-                                                   fact["category"]),
-                                     lambda fact: stuff.duration_minutes(fact["delta"]))
+                                     lambda fact: (fact["name"], fact["category"]),
+                                     lambda fact: fact["delta"].seconds + fact["delta"].days * 24 * 60 * 60)
+        
+        for sum in activity_sums:
+            activity_sums[sum] = activity_sums[sum] / 60 / 60.0
+
         by_duration = sorted(activity_sums.items(),
                              key = lambda x: x[1],
                              reverse = True)
         by_duration_keys = [entry[0][0] for entry in by_duration]
 
-        category_sums = [[entry[1] / 60.0 * (entry[0][1] == cat)
+        category_sums = [[entry[1] * (entry[0][1] == cat)
                             for cat in all_categories] for entry in by_duration]
         self.activity_chart.plot(by_duration_keys,
                                  category_sums,
