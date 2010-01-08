@@ -828,6 +828,7 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
         self.get_widget("totals_by_category").set_size_request(w + 40, -1)
     
     def fill_tree(self, facts):
+        self.fact_tree.set_model(None)
         day_dict = {}
         for day, facts in groupby(facts, lambda fact: fact["date"]):
             day_dict[day] = sorted(list(facts),
@@ -866,6 +867,7 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
                                         fact
                                         ])
 
+        self.fact_tree.set_model(self.fact_store)
         self.fact_tree.expand_all()
 
         
