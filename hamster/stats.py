@@ -1230,8 +1230,9 @@ than 15 minutes you seem to be a busy bee." % ("<b>%d</b>" % short_percent))
     def on_facts_row_activated(self, tree, path, column):
         selection = tree.get_selection()
         (model, iter) = selection.get_selected()
-        custom_fact = CustomFactController(self, None, model[iter][0])
-        custom_fact.show()
+        if model[iter][0] > -1:
+            custom_fact = CustomFactController(self, None, model[iter][0])
+            custom_fact.show()
         
     def on_add_clicked(self, button):
         selection = self.fact_tree.get_selection()
