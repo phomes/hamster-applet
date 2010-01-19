@@ -85,6 +85,7 @@ OPTIONS:
     """)
 
 if __name__ == "__main__":
+    gtk.gdk.threads_init()
     standalone = False
     start_window = None
 
