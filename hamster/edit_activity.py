@@ -562,34 +562,33 @@ class CustomFactController:
     def figure_description(self):
         activity = self.get_widget("activity_combo").child.get_text().decode("utf-8")
 
-        # juggle with description - break into parts and then put together
         buf = self.get_widget('description').get_buffer()
         description = buf.get_text(buf.get_start_iter(), buf.get_end_iter(), 0)\
                          .decode("utf-8")
         description = description.strip()
-        
-        # user might also type description in the activity name - strip it here
-        # and remember value
-        inline_description = None
-        if activity.find(",") != -1:
-            activity, inline_description  = activity.split(",", 1)
-            inline_description = inline_description.strip()
-        
+
         # description field is prior to inline description
-        return description or inline_description
-        
+        return description
+
     def on_save_button_clicked(self, button):
         activity = self.get_widget("activity_combo").child.get_text().decode("utf-8")
-        
+
         if not activity:
             return False
 
-        description = self.figure_description()
 
+        # user might also type description in the activity name - strip it here
+        # and remember value
+        inline_description = ""
+        if activity.find(",") != -1:
+            activity, inline_description  = activity.split(",", 1)
+            inline_description = inline_description.strip()
+
+        # juggle with description - break into parts and then put together
+        description = self.figure_description() or inline_description
         if description:
             activity = "%s, %s" % (activity, description)
 
-        
         start_time = self._get_datetime("start")
 
         if self.get_widget("in_progress").get_active():
