@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008, 2009.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=hamster-applet&component=general\n"
 "POT-Creation-Date: 2009-08-31 12:51+0000\n"
-"PO-Revision-Date: 2009-09-02 18:47+0200\n"
+"PO-Revision-Date: 2010-03-24 10:16+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgid ""
 "Remind of current task every specified amount of minutes. Set to 0 or "
 "greater than 120 to disable reminder."
 msgstr ""
-"Gogoratu uneko zeregina zehaztutako minutu kopururo. Ezarri 0 edo 120 baino "
+"Gogoratu uneko zeregina, zehaztutako minutu kopururo. Ezarri 0 edo 120 baino "
 "balio altuagoa gogorarazlea desgaitzeko."
 
 #: ../data/hamster-applet.schemas.in.h:5
@@ -411,7 +411,7 @@ msgstr "Burtsa-baloreak begiratzea"
 
 #: ../hamster/db.py:731
 msgid "Super secret project X"
-msgstr "X proiektu supersekretua"
+msgstr "Oso ezkutuko X proiektua"
 
 #: ../hamster/db.py:732
 msgid "World domination"
@@ -570,7 +570,7 @@ msgstr "HTML txostena"
 
 #: ../hamster/stats.py:72 ../hamster/stats.py:1249
 msgid "Tab-Separated Values (TSV)"
-msgstr "Tabulatzailez bereiztutako balioak (TSV)"
+msgstr "Tabuladorez bereiztutako balioak (TSV)"
 
 #: ../hamster/stats.py:80 ../hamster/stats.py:1257
 msgid "XML"
