@@ -159,10 +159,10 @@ class Storage(storage.Storage):
         activity = self.fetchone("select name from activities where id = ?", (id, ))
         existing_activity = self.__get_activity_by_name(activity['name'], category_id)
 
-        if id == existing_activity['id']: # we are already there, go home
-            return False
-
         if existing_activity: #ooh, we have something here!
+            if id == existing_activity['id']: # we are already there, go home
+                return False
+
             # first move all facts that belong to movable activity to the new one
             update = """
                        UPDATE facts
