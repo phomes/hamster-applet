@@ -1,20 +1,20 @@
 # English (British) translation.
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the hamster-applet package.
-# Philip Withnall <philip@tecnocode.co.uk>, 2008.
+# Philip Withnall <philip@tecnocode.co.uk>, 2008, 2010.
 # Bruce Cowan <bcowan@fastmail.co.uk>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-23 22:40+0000\n"
+"POT-Creation-Date: 2010-04-26 00:25+0100\n"
 "PO-Revision-Date: 2010-02-23 22:45+0100\n"
-"Last-Translator: Bruce Cowan <bcowan@fastmail.co.uk>\n"
+"Last-Translator: Philip Withnall <philip@tecnocode.co.uk>\n"
 "Language-Team: British English <en@li.org>\n"
-"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.5.2\n"
 
@@ -26,7 +26,7 @@ msgid ""
 "part of the activity is."
 msgstr ""
 "Activities will be counted as belonging to yesterday if the current time is "
-"less than the specified day start and today, if it is over the time. "
+"less than the specified day start; and today, if it is over the time. "
 "Activities that span two days will tip over to the side where the largest "
 "part of the activity is."
 
@@ -42,7 +42,7 @@ msgstr "Also remind when no activity is set"
 
 #: ../data/hamster-applet.schemas.in.h:4
 msgid "At what time does the day start (defaults to 5:30AM)"
-msgstr "At what time does the day start (defaults to 5:30)"
+msgstr "At what time does the day start (defaults to 05:30)"
 
 #: ../data/hamster-applet.schemas.in.h:5
 msgid ""
@@ -58,13 +58,13 @@ msgstr "Keyboard shortcut for showing the Time Tracker window."
 
 #: ../data/hamster-applet.schemas.in.h:7
 msgid ""
-"List of enabled tracking methods. \"name\" will enable switching activities by "
-"name defined in workspace_mapping. \"memory\" will enable switching to last "
-"activity when returning to a previous workspace."
+"List of enabled tracking methods. \"name\" will enable switching activities "
+"by name defined in workspace_mapping. \"memory\" will enable switching to "
+"last activity when returning to a previous workspace."
 msgstr ""
-"List of enabled tracking methods. \"name\" will enable switching activities by "
-"name defined in workspace_mapping. \"memory\" will enable switching to last "
-"activity when returning to a previous workspace."
+"List of enabled tracking methods. \"name\" will enable switching activities "
+"by name defined in workspace_mapping. \"memory\" will enable switching to "
+"the last activity when returning to a previous workspace."
 
 #: ../data/hamster-applet.schemas.in.h:8
 msgid ""
@@ -113,7 +113,7 @@ msgstr "Project Hamster — track your time"
 #: ../data/Hamster_Applet.server.in.in.h:2
 #: ../data/hamster-standalone.desktop.in.in.h:2 ../data/hamster.ui.h:10
 #: ../src/hamster/about.py:39 ../src/hamster/about.py:40
-#: ../src/hamster/applet.py:344 ../src/hamster-standalone:199
+#: ../src/hamster/applet.py:344 ../src/hamster-standalone:201
 msgid "Time Tracker"
 msgstr "Time Tracker"
 
@@ -251,7 +251,7 @@ msgid "Show Statistics"
 msgstr "Show Statistics"
 
 #: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:212
-#: ../src/hamster/reports.py:227 ../src/hamster-standalone:70
+#: ../src/hamster/reports.py:227 ../src/hamster-standalone:72
 msgid "Tags"
 msgstr "Tags"
 
@@ -404,13 +404,13 @@ msgstr ""
 
 #: ../src/hamster/applet.py:206 ../src/hamster/preferences.py:196
 #: ../src/hamster/reports.py:225 ../src/hamster/reports.py:289
-#: ../src/hamster-standalone:64
+#: ../src/hamster-standalone:66
 msgid "Activity"
 msgstr "Activity"
 
 #: ../src/hamster/applet.py:317 ../src/hamster/applet.py:340
-#: ../src/hamster/applet.py:437 ../src/hamster-standalone:195
-#: ../src/hamster-standalone:264
+#: ../src/hamster/applet.py:437 ../src/hamster-standalone:197
+#: ../src/hamster-standalone:266
 msgid "No activity"
 msgstr "No activity"
 
@@ -430,19 +430,19 @@ msgstr "%sh"
 #: ../src/hamster/db.py:723 ../src/hamster/edit_activity.py:51
 #: ../src/hamster/preferences.py:61 ../src/hamster/reports.py:56
 #: ../src/hamster/reports.py:94 ../src/hamster/reports.py:243
-#: ../src/hamster-standalone:247 ../src/hamster/stuff.py:132
+#: ../src/hamster-standalone:249 ../src/hamster/stuff.py:132
 msgid "Unsorted"
 msgstr "Unsorted"
 
-#: ../src/hamster/applet.py:428 ../src/hamster-standalone:255
+#: ../src/hamster/applet.py:428 ../src/hamster-standalone:257
 msgid "Just started"
 msgstr "Just started"
 
-#: ../src/hamster/applet.py:671 ../src/hamster-standalone:441
+#: ../src/hamster/applet.py:671 ../src/hamster-standalone:443
 msgid "Changed activity"
 msgstr "Changed activity"
 
-#: ../src/hamster/applet.py:672 ../src/hamster-standalone:442
+#: ../src/hamster/applet.py:672 ../src/hamster-standalone:444
 #, c-format, python-format
 msgid "Switched to '%s'"
 msgstr "Switched to '%s'"
@@ -488,7 +488,7 @@ msgstr "Doing handstands"
 msgid "Update activity"
 msgstr "Update activity"
 
-#: ../src/hamster/overview_activities.py:94
+#: ../src/hamster/overview_activities.py:88
 msgctxt "overview list"
 msgid "%A, %b %d"
 msgstr "%A, %d %b."
@@ -539,7 +539,7 @@ msgstr "%(start_d)s %(start_B)s – %(end_d)s %(end_B)s, %(end_Y)s"
 msgid "%(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
 msgstr "%(start_d)s %(start_B)s – %(end_d)s, %(end_Y)s"
 
-#: ../src/hamster/overview_totals.py:148
+#: ../src/hamster/overview_totals.py:149
 #, python-format
 msgid "%s hours tracked total"
 msgstr "%s hours tracked total"
@@ -663,7 +663,7 @@ msgstr "%d %b, %Y"
 msgid "Total Time"
 msgstr "Total Time"
 
-#: ../src/hamster-standalone:190
+#: ../src/hamster-standalone:192
 #, c-format
 msgid "Working on <b>%s</b>"
 msgstr "Working on <b>%s</b>"
@@ -799,7 +799,7 @@ msgstr "%dh %dmin"
 
 #: ../src/hamster/widgets/reportchooserdialog.py:38
 msgid "Save report - Time Tracker"
-msgstr "Save report – Time Tracker"
+msgstr "Save Report – Time Tracker"
 
 #: ../src/hamster/widgets/reportchooserdialog.py:50
 msgid "HTML Report"
