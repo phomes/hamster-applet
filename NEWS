@@ -1,4 +1,21 @@
 ===============
+Version 2.30.1
+===============
+  Bugfixes
+    * translations were not appearing in standalone
+    * database file change monitor now follows symlinks
+    * fixed rounding error in totals  (regression)
+    * standalone can be now closed using standard Ctrl+w keystroke
+
+  Updated translations
+    * ca@valencia (Gil Forcada)
+    * cs (Adrian Guniš)
+    * en_GB (Philip Withnall)
+    * et (Mattias Põldaru)
+    * sr (Бранко Кокановић)
+
+
+===============
 Version 2.30.0
 ===============
   Updated translations
