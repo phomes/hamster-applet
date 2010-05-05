@@ -58,6 +58,7 @@ class TagsEntry(gtk.Entry):
         self.connect("key-release-event", self._on_key_release_event)
         self.connect("focus-out-event", self._on_focus_out_event)
         self.connect("parent-set", self._on_parent_set)
+        self._parent_click_watcher = None # bit lame but works
 
         runtime.dispatcher.add_handler('new_tags_added', self.refresh_tags)
         self.show()
@@ -92,11 +93,17 @@ class TagsEntry(gtk.Entry):
 
     def hide_popup(self):
         self.popup.hide()
+        if self._parent_click_watcher and self.get_toplevel().handler_is_connected(self._parent_click_watcher):
+            self.get_toplevel().disconnect(self._parent_click_watcher)
+            self._parent_click_watcher = None
 
     def show_popup(self):
         if not self.filter_tags:
             self.popup.hide()
             return
+
+        if not self._parent_click_watcher:
+            self._parent_click_watcher = self.get_toplevel().connect("button-press-event", self._on_focus_out_event)
 
         alloc = self.get_allocation()
         x, y = self.get_parent_window().get_origin()
