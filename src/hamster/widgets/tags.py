@@ -247,6 +247,9 @@ class TagBox(graphics.Area):
         self.redraw_canvas()
 
     def on_tag_click(self, widget, regions):
+        if not regions:
+            return
+
         tag = regions[0]
         if tag in self.selected_tags:
             #self.selected_tags.remove(tag)
