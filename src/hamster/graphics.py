@@ -119,10 +119,6 @@ class Area(gtk.DrawingArea):
 
     """ animation bits """
     def __interpolate(self):
-        if not self.window: #will wait until window comes
-            return True
-
-
         time_since_last_frame = (dt.datetime.now() - self.last_frame_time).microseconds / 1000000.0
         self.tweener.update(time_since_last_frame)
         self.__drawing_queued = self.tweener.hasTweens()
