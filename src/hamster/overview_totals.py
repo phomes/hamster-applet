@@ -109,10 +109,7 @@ class TotalsBox(gtk.VBox):
             self.tag_chart.bars_selected.append(idx)
             self.selected_tags.append(self.tag_sums[0][idx])
         self.do_charts()
-
-
-    def on_reports_box_expose_event(self, box, someth):
-        self.do_charts()
+        
 
     def search(self, start_date, end_date, facts):
         self.facts = facts
