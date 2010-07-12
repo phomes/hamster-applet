@@ -570,7 +570,7 @@ class HamsterApplet(object):
         dialogs.edit.show(self.applet)
 
     def on_about (self, component, verb):
-        dialogs.about.show()
+        dialogs.about.show(self.window)
 
     def show_preferences(self, menu_item, verb):
         runtime.dispatcher.dispatch('panel_visible', False)
