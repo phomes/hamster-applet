@@ -455,7 +455,7 @@ class FactCellRenderer(gtk.GenericCellRenderer):
         if not self.data or "id" not in self.data:
             return None
         fact = self.data
-        pixmap = gtk.gdk.Pixmap(None, 10, 10, 24)
+        pixmap = gtk.gdk.Pixmap(None, 10, 10, 1)
         context = pixmap.cairo_create()
 
         layout = context.create_layout()

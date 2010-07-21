@@ -287,7 +287,7 @@ class TagBox(graphics.Area):
         if not self.tags:
             return None
 
-        pixmap = gtk.gdk.Pixmap(None, width, 500, 24)
+        pixmap = gtk.gdk.Pixmap(None, width, 500, 1)
         context = pixmap.cairo_create()
 
         if not self.layout:
