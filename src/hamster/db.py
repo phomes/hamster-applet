@@ -425,7 +425,7 @@ class Storage(storage.Storage):
                                    SET end_time = ?
                                  WHERE id = ?""", (start_time, fact["id"]))
                 fact_name = fact["name"]
-                new_fact = self.__add_fact(fact["name"],
+                new_fact_id = self.__add_fact(fact["name"],
                                            "", # will create tags in the next step
                                            end_time,
                                            fact["end_time"],
@@ -435,7 +435,7 @@ class Storage(storage.Storage):
                                      SELECT ?, tag_id
                                        FROM fact_tags
                                       WHERE fact_id = ?"""
-                self.execute(tag_update, (new_fact["id"], fact["id"])) #clone tags
+                self.execute(tag_update, (new_fact_id, fact["id"])) #clone tags
 
             # overlap start
             elif start_time < fact["start_time"] < end_time:
