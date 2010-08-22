@@ -452,6 +452,8 @@ class Storage(storage.Storage):
 
         for fact in conflicts:
             # won't eliminate as it is better to have overlapping entries than loosing data
+            if start_time < fact["start_time"] and end_time > fact["end_time"]:
+                continue
 
             # split - truncate until beginning of new entry and create new activity for end
             if fact["start_time"] < start_time < fact["end_time"] and \
