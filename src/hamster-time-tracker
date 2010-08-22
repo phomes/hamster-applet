@@ -397,11 +397,13 @@ class ProjectHamster(object):
         self.get_widget("switch_activity").set_sensitive(widget.get_text() != "")
 
     def on_switch_activity_clicked(self, widget):
-        if not self.new_name.get_text():
+        activity_name, temporary = self.new_name.get_value()
+        if not activity_name:
             return False
 
         runtime.storage.add_fact(self.new_name.get_text().decode("utf8", "replace"),
-                                 self.new_tags.get_text().decode("utf8", "replace"))
+                                 self.new_tags.get_text().decode("utf8", "replace"),
+                                 temporary = temporary)
         self.new_name.set_text("")
         self.new_tags.set_text("")
 
