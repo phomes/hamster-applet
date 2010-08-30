@@ -1,4 +1,20 @@
 ===============
+Version 2.31.91
+===============
+  * data integrity bugfixes
+
+  Updated translations:
+    * da (Kenneth Nielsen)
+    * es (Jorge González)
+    * fr (Jean-Philippe Fleury)
+    * gl (Fran Dieguez)
+    * sr (Милош Поповић)
+
+  Updated documentation translations:
+    * de (Christian Kirbach)
+    * es (Jorge González)
+
+===============
 Version 2.31.90
 ===============
   * maintaining selection on refresh in a more sane manner
