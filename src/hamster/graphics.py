@@ -618,30 +618,28 @@ class Label(Sprite):
 
 
     def __setattr__(self, name, val):
-        Sprite.__setattr__(self, name, val)
+        if self.__dict__.get(name, "hamster_graphics_no_value_really") != val:
+            if name == "width" and val and self.__dict__.get('_bounds_width') and val * pango.SCALE == self.__dict__['_bounds_width']:
+                return
 
-        if name == "width":
-            # setting width means consumer wants to contrain the label
-            if val is None or val == -1:
-                self.__dict__['_bounds_width'] = -1
-            else:
-                self.__dict__['_bounds_width'] = val * pango.SCALE
+            Sprite.__setattr__(self, name, val)
 
-        if name in ("width", "text", "size", "font_desc", "wrap", "ellipsize"):
-            # avoid chicken and egg
-            if "text" in self.__dict__ and "size" in self.__dict__ and "width" in self.__dict__:
-                self._set_dimensions()
 
+            if name == "width":
+                # setting width means consumer wants to contrain the label
+                if val is None or val == -1:
+                    self.__dict__['_bounds_width'] = -1
+                else:
+                    self.__dict__['_bounds_width'] = val * pango.SCALE
+
+            if name in ("width", "text", "size", "font_desc", "wrap", "ellipsize"):
+                # avoid chicken and egg
+                if "text" in self.__dict__ and "size" in self.__dict__:
+                    self._set_dimensions()
 
     def on_render(self, sprite):
-        self.graphics.clear()
         if not self.text:
             return
-
-        if self.interactive: #if label is interactive, draw invisible bounding box for simple hit calculations
-            self.graphics.set_color("#000", 0)
-            self.graphics.rectangle(0,0, self.width, self.height)
-            self.graphics.stroke()
 
         self.graphics.set_color(self.color)
         self.graphics.show_layout(self.text, self.font_desc,
@@ -649,6 +647,12 @@ class Label(Sprite):
                                   self._bounds_width,
                                   self.wrap,
                                   self.ellipsize)
+
+        if self._bounds_width != -1:
+            rect_width = self._bounds_width / pango.SCALE
+        else:
+            rect_width = self.width
+        self.graphics.rectangle(0, 0, rect_width, self.height)
 
 
     def _set_dimensions(self):
