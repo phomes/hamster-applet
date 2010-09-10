@@ -510,6 +510,9 @@ class FactCellRenderer(gtk.GenericCellRenderer):
 
         selected = flags and flags & gtk.CELL_RENDERER_SELECTED
 
+        self.selected_color = widget.get_style().text[gtk.STATE_SELECTED]
+        self.normal_color = widget.get_style().text[gtk.STATE_NORMAL]
+
         text_color = self.normal_color
         if selected:
             text_color = self.selected_color
