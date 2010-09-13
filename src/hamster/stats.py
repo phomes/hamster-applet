@@ -157,6 +157,7 @@ class Stats(object):
                            facts)
 
         if not facts or (facts[-1]["start_time"] - facts[0]["start_time"]) < dt.timedelta(days=6):
+            self.get_widget("explore_controls").hide()
             self.get_widget("statistics_box").hide()
             #self.get_widget("explore_controls").hide()
             label = self.get_widget("not_enough_records_label")
