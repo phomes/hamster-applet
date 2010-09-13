@@ -1,4 +1,19 @@
 ===============
+Version 2.31.92
+===============
+  * minor bugfixes
+
+  Updated translations:
+    * el (Michael Kotsarinis)
+    * en_GB (Bruce Cowan)
+    * et (Ivar Smolin)
+    * hu (Gabor Kelemen)
+    * it (Milo Casagrande)
+    * ja (Nishio Futoshi)
+    * pt (Duarte Loreto)
+    * sv (Daniel Nylander)
+
+===============
 Version 2.31.91
 ===============
   * data integrity bugfixes
