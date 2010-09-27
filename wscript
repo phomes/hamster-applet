@@ -1,5 +1,5 @@
 # -*- python -*-
-VERSION = '2.31.93'
+VERSION = '2.32.1'
 APPNAME = 'hamster-applet'
 top = '.'
 out = 'build'

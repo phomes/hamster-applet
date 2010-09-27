@@ -1,3 +1,26 @@
+==============
+Version 2.32.0
+==============
+  * fixed bug with stale cache in description label
+
+  Updated translations:
+    * ar (Khaled Hosny)
+    * bg (Damyan Ivanov)
+    * cs (Adrian Guniš)
+    * id (Dirgita)
+    * ja (Nishio Futoshi)
+    * pl (Piotr Drąg)
+    * pt_BR (Og Maciel)
+    * ru (Alexander Saprykin)
+
+
+  Updated documentation translations:
+    * cs (Adrian Guniš)
+    * fr (Bruno Brouard)
+    * sv (Daniel Nylander)
+
+
+
 ===============
 Version 2.31.92
 ===============
