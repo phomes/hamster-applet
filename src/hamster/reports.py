@@ -150,7 +150,7 @@ class XMLWriter(ReportWriter):
         activity.setAttribute("name", fact["name"])
         activity.setAttribute("start_time", fact["start_time"])
         activity.setAttribute("end_time", fact["end_time"])
-        activity.setAttribute("duration_minutes", stuff.duration_minutes(fact["delta"]))
+        activity.setAttribute("duration_minutes", str(stuff.duration_minutes(fact["delta"])))
         activity.setAttribute("category", fact["category"])
         activity.setAttribute("description", fact["description"])
         activity.setAttribute("tags", fact["tags"])
