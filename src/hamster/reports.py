@@ -300,25 +300,25 @@ class HTMLWriter(ReportWriter):
 
         by_activity_category_rows = []
         # group by activity
-        name_category = lambda fact: (fact.category)
-        name_activity = lambda fact: (fact.activity)
+        name_category = lambda fact: (fact['category'])
+        name_activity = lambda fact: (fact['name'])
 
         total_duration = None
         by_category = sorted(facts, key=name_category)
-        for category, category_facts in itertools.groupby(by_category, lambda fact:fact.category):
+        for category, category_facts in itertools.groupby(by_category, lambda fact:fact['category']):
             by_activity = sorted(category_facts, key=name_activity)
 
             for (activity), ac_facts in itertools.groupby(by_activity, name_activity):
                 duration = dt.timedelta()
                 for fact in ac_facts:
-                    duration += fact.delta
+                    duration += fact['delta']
 
                 by_activity_category_rows.append(Template(self.by_activity_category_row_template).safe_substitute(
                                         dict(activity = activity,
                                              category = category,
                                              duration = stuff.format_duration(duration),
-                                             duration_minutes = "%d" % (stuff.duration_minutes(fact.delta)),
-                                             duration_decimal = "%.2f" % (stuff.duration_minutes(fact.delta) / 60.0),
+                                             duration_minutes = "%d" % (stuff.duration_minutes(fact['delta'])),
+                                             duration_decimal = "%.2f" % (stuff.duration_minutes(fact['delta']) / 60.0),
                                         )
                                     ))
                 if (total_duration):
