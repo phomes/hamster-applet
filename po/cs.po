@@ -2,25 +2,24 @@
 # Copyright (C) 2008, 2009, 2010 the author(s) of hamster-applet.
 # This file is distributed under the same license as the hamster-applet package.
 #
-# Petr Kovar <pknbe@volny.cz>, 2009.
-# Adrian Guniš <andygun696@gmail.com>, 2008, 2009, 2010.
 #
+# Petr Kovar <pknbe@volny.cz>, 2009, 2010.
+# Adrian Guniš <andygun696@gmail.com>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=hamster-applet&component=general\n"
-"POT-Creation-Date: 2010-09-13 11:52+0000\n"
-"PO-Revision-Date: 2010-09-13 23:40+0200\n"
-"Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-15 06:16+0100\n"
+"PO-Revision-Date: 2010-11-15 06:15+0100\n"
+"Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-Language: Czech\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.1\n"
 
 #: ../data/90-hamster-applet.xml.in.h:1
 msgid "Project Hamster (Gnome Time Tracker)"
@@ -278,12 +277,12 @@ msgid "Show Statistics"
 msgstr "Zobrazit statistiky"
 
 #: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:215
-#: ../src/hamster/reports.py:314 ../src/hamster-time-tracker:48
+#: ../src/hamster/reports.py:354 ../src/hamster-time-tracker:48
 msgid "Tags"
 msgstr "Štítky"
 
 #: ../data/overview.ui.h:2 ../src/hamster/applet.py:209
-#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:312
+#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:352
 #: ../src/hamster-time-tracker:39
 msgid "Activity"
 msgstr "Činnost"
@@ -316,7 +315,7 @@ msgstr "Odstranit"
 msgid "Save report..."
 msgstr "Uložit zprávu..."
 
-#: ../data/overview.ui.h:10 ../data/stats.ui.h:3
+#: ../data/overview.ui.h:10 ../data/stats.ui.h:3 ../src/hamster/reports.py:344
 msgid "Totals"
 msgstr "Celkem"
 
@@ -489,7 +488,7 @@ msgstr "%sh"
 #: ../src/hamster/db.py:296 ../src/hamster/db.py:352 ../src/hamster/db.py:682
 #: ../src/hamster/db.py:865 ../src/hamster/edit_activity.py:54
 #: ../src/hamster/preferences.py:56 ../src/hamster/reports.py:61
-#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:222
+#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:224
 #: ../src/hamster-time-tracker:218
 msgid "Unsorted"
 msgstr "Bez kategorie"
@@ -568,7 +567,7 @@ msgstr "Žádný"
 msgid "Name"
 msgstr "Název"
 
-#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:313
+#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:353
 msgid "Category"
 msgstr "Kategorie"
 
@@ -632,8 +631,8 @@ msgid ""
 "Activity log for %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %(end_d)s, "
 "%(end_Y)s"
 msgstr ""
-"Záznam činností za %(start_d)s. %(start_B)s %(start_Y)s – %(end_d)s. %(end_B)"
-"s %(end_Y)s"
+"Záznam činností za %(start_d)s. %(start_B)s %(start_Y)s – %(end_d)s. "
+"%(end_B)s %(end_Y)s"
 
 #: ../src/hamster/reports.py:175
 #, python-format
@@ -655,56 +654,60 @@ msgstr "Záznam činností za %(start_d)s. – %(end_d)s. %(start_B)s %(end_Y)s"
 #. date column format for each row in HTML report
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/reports.py:231 ../src/hamster/reports.py:293
+#: ../src/hamster/reports.py:233 ../src/hamster/reports.py:295
 msgctxt "html report"
 msgid "%b %d, %Y"
 msgstr "%d. %b %Y"
 
-#: ../src/hamster/reports.py:303
+#: ../src/hamster/reports.py:335
+msgid "Total"
+msgstr "Celkem"
+
+#: ../src/hamster/reports.py:342
 msgid "Totals by Day"
 msgstr "Souhrny za den"
 
-#: ../src/hamster/reports.py:304
+#: ../src/hamster/reports.py:343
 msgid "Activity Log"
 msgstr "Záznam činností"
 
-#: ../src/hamster/reports.py:306
+#: ../src/hamster/reports.py:346
 msgid "totals by activity"
 msgstr "souhrny podle činnosti"
 
-#: ../src/hamster/reports.py:307
+#: ../src/hamster/reports.py:347
 msgid "totals by category"
 msgstr "souhrny podle kategorie"
 
-#: ../src/hamster/reports.py:309
+#: ../src/hamster/reports.py:349
 msgid "Show:"
 msgstr "Zobrazit:"
 
-#: ../src/hamster/reports.py:311
+#: ../src/hamster/reports.py:351
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/hamster/reports.py:315
+#: ../src/hamster/reports.py:355
 msgid "Start"
 msgstr "Začátek"
 
-#: ../src/hamster/reports.py:316
+#: ../src/hamster/reports.py:356
 msgid "End"
 msgstr "Konec"
 
-#: ../src/hamster/reports.py:317
+#: ../src/hamster/reports.py:357
 msgid "Duration"
 msgstr "Trvání"
 
-#: ../src/hamster/reports.py:318
+#: ../src/hamster/reports.py:358
 msgid "Description"
 msgstr "Popis"
 
-#: ../src/hamster/reports.py:321
+#: ../src/hamster/reports.py:361
 msgid "Show template"
 msgstr "Zobrazit šablonu"
 
-#: ../src/hamster/reports.py:322
+#: ../src/hamster/reports.py:362
 #, python-format
 msgid "You can override it by storing your version in %(home_folder)s"
 msgstr "Můžete ji přepsat uložením vaší verze do %(home_folder)s"
@@ -768,8 +771,8 @@ msgstr[2] "%(num)s let"
 #: ../src/hamster/stats.py:345
 #, python-format
 msgid ""
-"Time tracked so far is %(human_days)s human days (%(human_years)s) or %"
-"(working_days)s working days (%(working_years)s)."
+"Time tracked so far is %(human_days)s human days (%(human_years)s) or "
+"%(working_days)s working days (%(working_years)s)."
 msgstr ""
 "Dosud sledovaný čas čítá %(human_days)s kalendářních dnů (%(human_years)s) "
 "nebo %(working_days)s pracovních dnů (%(working_years)s)."
@@ -906,4 +909,3 @@ msgstr "iCal"
 #: ../src/hamster/widgets/reportchooserdialog.py:97
 msgid "Time track"
 msgstr "Sledované období"
-
