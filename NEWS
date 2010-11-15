@@ -1,4 +1,24 @@
 ==============
+Version 2.32.1
+==============
+  Bugfixes:
+    * totals are returned to HTML report
+    * fixed problems with the stop button and python 2.7
+    * ampersand now is safe to use again
+
+  Updated translations:
+    * ca (Sílvia Miranda)
+    * ca@valencia (Gil Forcada)
+    * cs (Adrian Guniš)
+    * el (Michael Kotsarinis)
+    * eu (Iñaki Larrañaga Murgoitio)
+    * fr (Jean-Philippe Fleury)
+    * hu (Gabor Kelemen)
+    * ja (Takayuki KUSANO)
+    * ko (Changwoo Ryu)
+    * lt (Žygimantas Beručka)
+
+==============
 Version 2.32.0
 ==============
   * fixed bug with stale cache in description label
