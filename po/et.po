@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=hamster-applet&component=general\n"
 "POT-Creation-Date: 2010-08-17 09:22+0000\n"
-"PO-Revision-Date: 2010-09-03 09:17+0300\n"
+"PO-Revision-Date: 2010-11-18 15:44+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -238,7 +238,7 @@ msgid "Remove"
 msgstr "Eemalda"
 
 msgid "Save report..."
-msgstr "Salvesta raport..."
+msgstr "Salvesta aruanne..."
 
 msgid "Totals"
 msgstr "Kokku"
@@ -567,7 +567,7 @@ msgstr "Andmete kogumine — vaata järgmisel nädalal uuesti!"
 #. http://docs.python.org/library/time.html#time.strftime
 msgctxt "first record"
 msgid "%b %d, %Y"
-msgstr "%d.%b.%Y"
+msgstr "%d. %b.%Y"
 
 #. date of first record when year has been selected
 #. Using python datetime formatting syntax. See:
@@ -601,7 +601,7 @@ msgstr ""
 #. http://docs.python.org/library/time.html#time.strftime
 msgctxt "date of the longest activity"
 msgid "%b %d, %Y"
-msgstr "%d.%b.%Y"
+msgstr "%d. %b.%Y"
 
 #, python-format
 msgid "Longest continuous work happened on %(date)s and was %(hours)s hour."
@@ -694,10 +694,10 @@ msgid "%(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
 msgstr "%(start_d)s-%(end_d)s %(start_B)s %(end_Y)s"
 
 msgid "Save Report — Time Tracker"
-msgstr "Ajajälgija - raporti salvestamine"
+msgstr "Ajajälgija - aruande salvestamine"
 
 msgid "HTML Report"
-msgstr "HTML-raport"
+msgstr "HTML-aruanne"
 
 msgid "Tab-Separated Values (TSV)"
 msgstr "Tabulaatoriga eraldatud väärtused (TSV)"
