@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-17 22:21+0200\n"
-"PO-Revision-Date: 2010-09-16 16:24+0200\n"
+"POT-Creation-Date: 2011-02-11 11:13+0100\n"
+"PO-Revision-Date: 2011-02-11 11:14+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -280,12 +281,12 @@ msgid "Show Statistics"
 msgstr "Wyświetl statystyki"
 
 #: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:215
-#: ../src/hamster/reports.py:314 ../src/hamster-time-tracker:48
+#: ../src/hamster/reports.py:355 ../src/hamster-time-tracker:48
 msgid "Tags"
 msgstr "Etykiety"
 
 #: ../data/overview.ui.h:2 ../src/hamster/applet.py:209
-#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:312
+#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:353
 #: ../src/hamster-time-tracker:39
 msgid "Activity"
 msgstr "Czynność"
@@ -318,7 +319,7 @@ msgstr "Usuń"
 msgid "Save report..."
 msgstr "Zapisz sprawozdanie..."
 
-#: ../data/overview.ui.h:10 ../data/stats.ui.h:3
+#: ../data/overview.ui.h:10 ../data/stats.ui.h:3 ../src/hamster/reports.py:345
 msgid "Totals"
 msgstr "Ogółem"
 
@@ -492,7 +493,7 @@ msgstr "%sh"
 #: ../src/hamster/db.py:296 ../src/hamster/db.py:352 ../src/hamster/db.py:682
 #: ../src/hamster/db.py:865 ../src/hamster/edit_activity.py:54
 #: ../src/hamster/preferences.py:56 ../src/hamster/reports.py:61
-#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:222
+#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:225
 #: ../src/hamster-time-tracker:218
 msgid "Unsorted"
 msgstr "Bez sortowania"
@@ -571,7 +572,7 @@ msgstr "Brak"
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:313
+#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:354
 msgid "Category"
 msgstr "Kategoria"
 
@@ -629,29 +630,29 @@ msgstr "opis"
 msgid "tags"
 msgstr "etykiety"
 
-#: ../src/hamster/reports.py:173
+#: ../src/hamster/reports.py:174
 #, python-format
 msgid ""
 "Activity log for %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %(end_d)s, "
 "%(end_Y)s"
 msgstr ""
-"Dziennik czynności dla %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %"
-"(end_d)s, %(end_Y)s"
+"Dziennik czynności dla %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s "
+"%(end_d)s, %(end_Y)s"
 
-#: ../src/hamster/reports.py:175
+#: ../src/hamster/reports.py:176
 #, python-format
 msgid ""
 "Activity log for %(start_B)s %(start_d)s – %(end_B)s %(end_d)s, %(end_Y)s"
 msgstr ""
-"Dziennik czynności dla %(start_B)s %(start_d)s – %(end_B)s %(end_d)s, %"
-"(end_Y)s"
+"Dziennik czynności dla %(start_B)s %(start_d)s – %(end_B)s %(end_d)s, "
+"%(end_Y)s"
 
-#: ../src/hamster/reports.py:177
+#: ../src/hamster/reports.py:178
 #, python-format
 msgid "Activity log for %(start_B)s %(start_d)s, %(start_Y)s"
 msgstr "Dziennik czynności dla %(start_B)s %(start_d)s, %(start_Y)s"
 
-#: ../src/hamster/reports.py:179
+#: ../src/hamster/reports.py:180
 #, python-format
 msgid "Activity log for %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
 msgstr "Dziennik czynności dla %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
@@ -659,56 +660,60 @@ msgstr "Dziennik czynności dla %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s
 #. date column format for each row in HTML report
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/reports.py:231 ../src/hamster/reports.py:293
+#: ../src/hamster/reports.py:234 ../src/hamster/reports.py:296
 msgctxt "html report"
 msgid "%b %d, %Y"
 msgstr "%d %b %Y"
 
-#: ../src/hamster/reports.py:303
+#: ../src/hamster/reports.py:336
+msgid "Total"
+msgstr "Ogółem"
+
+#: ../src/hamster/reports.py:343
 msgid "Totals by Day"
 msgstr "Ogółem według dni"
 
-#: ../src/hamster/reports.py:304
+#: ../src/hamster/reports.py:344
 msgid "Activity Log"
 msgstr "Dziennik czynności"
 
-#: ../src/hamster/reports.py:306
+#: ../src/hamster/reports.py:347
 msgid "totals by activity"
 msgstr "ogółem według czynności"
 
-#: ../src/hamster/reports.py:307
+#: ../src/hamster/reports.py:348
 msgid "totals by category"
 msgstr "ogółem według kategorii"
 
-#: ../src/hamster/reports.py:309
+#: ../src/hamster/reports.py:350
 msgid "Show:"
 msgstr "Wyświetlanie:"
 
-#: ../src/hamster/reports.py:311
+#: ../src/hamster/reports.py:352
 msgid "Date"
 msgstr "Data"
 
-#: ../src/hamster/reports.py:315
+#: ../src/hamster/reports.py:356
 msgid "Start"
 msgstr "Rozpoczęcie"
 
-#: ../src/hamster/reports.py:316
+#: ../src/hamster/reports.py:357
 msgid "End"
 msgstr "Zakończenie"
 
-#: ../src/hamster/reports.py:317
+#: ../src/hamster/reports.py:358
 msgid "Duration"
 msgstr "Czas trwania"
 
-#: ../src/hamster/reports.py:318
+#: ../src/hamster/reports.py:359
 msgid "Description"
 msgstr "Opis"
 
-#: ../src/hamster/reports.py:321
+#: ../src/hamster/reports.py:362
 msgid "Show template"
 msgstr "Wyświetlanie szablonu"
 
-#: ../src/hamster/reports.py:322
+#: ../src/hamster/reports.py:363
 #, python-format
 msgid "You can override it by storing your version in %(home_folder)s"
 msgstr "Można go zastąpić przez umieszczenie swojej wersji w %(home_folder)s"
@@ -773,12 +778,12 @@ msgstr[2] "%(num)s lat"
 #: ../src/hamster/stats.py:345
 #, python-format
 msgid ""
-"Time tracked so far is %(human_days)s human days (%(human_years)s) or %"
-"(working_days)s working days (%(working_years)s)."
+"Time tracked so far is %(human_days)s human days (%(human_years)s) or "
+"%(working_days)s working days (%(working_years)s)."
 msgstr ""
-"Do chwili obecnej prześledzono czynności o łącznym czasie trwania %"
-"(human_days)s dni (%(human_years)s) lub %(working_days)s dni roboczych (%"
-"(working_years)s)."
+"Do chwili obecnej prześledzono czynności o łącznym czasie trwania "
+"%(human_days)s dni (%(human_years)s) lub %(working_days)s dni roboczych "
+"(%(working_years)s)."
 
 #. How the date of the longest activity should be displayed in statistics
 #. Using python datetime formatting syntax. See:
