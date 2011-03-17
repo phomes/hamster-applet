@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Hamster Applet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-19 21:16+0300\n"
-"PO-Revision-Date: 2010-07-19 21:16+0200\n"
+"POT-Creation-Date: 2011-03-17 12:29+0200\n"
+"PO-Revision-Date: 2011-03-17 12:29+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Gezer <sh.yaron@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -133,9 +133,9 @@ msgstr "פרוייקט Hamster - עקוב אחר הזמן שלך"
 
 #: ../data/Hamster_Applet.server.in.in.h:2
 #: ../data/hamster-applet.desktop.in.in.h:2
-#: ../data/hamster-time-tracker.desktop.in.in.h:2 ../data/hamster.ui.h:10
+#: ../data/hamster-time-tracker.desktop.in.in.h:2 ../data/hamster.ui.h:9
 #: ../src/hamster/about.py:39 ../src/hamster/about.py:40
-#: ../src/hamster/applet.py:325 ../src/hamster-time-tracker:169
+#: ../src/hamster/applet.py:329 ../src/hamster-time-tracker:172
 msgid "Time Tracker"
 msgstr "מעקב אחרי הזמן"
 
@@ -143,7 +143,7 @@ msgstr "מעקב אחרי הזמן"
 msgid "_About"
 msgstr "_אודות"
 
-#: ../data/Hamster_Applet.xml.h:2 ../data/hamster.ui.h:13
+#: ../data/Hamster_Applet.xml.h:2 ../data/hamster.ui.h:12
 msgid "_Help"
 msgstr "ע_זרה"
 
@@ -160,7 +160,7 @@ msgstr "_העדפות"
 msgid "Project Hamster - track your time"
 msgstr "מיזם Hamster — מעקב אחר הזמן שלך"
 
-#: ../data/applet.ui.h:1 ../src/hamster/applet.py:361
+#: ../data/applet.ui.h:1 ../src/hamster/applet.py:367
 msgid "No records today"
 msgstr "אין רשומות מהיום"
 
@@ -180,15 +180,11 @@ msgstr "ה_תחלת מעקב"
 msgid "Sto_p Tracking"
 msgstr "ה_פסקת המעקב"
 
-#: ../data/applet.ui.h:6 ../data/hamster.ui.h:9
-msgid "Tell me more"
-msgstr "ספרו לי עוד"
-
-#: ../data/applet.ui.h:7
+#: ../data/applet.ui.h:6
 msgid "To_day"
 msgstr "ה_יום"
 
-#: ../data/applet.ui.h:8
+#: ../data/applet.ui.h:7
 msgid "_Add earlier activity"
 msgstr "הו_ספת פעילות קודמת"
 
@@ -229,8 +225,10 @@ msgid "Contents"
 msgstr "תכנים"
 
 #. now add buttons
-#: ../data/hamster.ui.h:3 ../src/docky_control/hamster_control.py:79
-#: ../src/docky_control/hamster_control.py:94
+#: ../data/hamster.ui.h:3 ../src/docky_control/2.0/hamster_control.py:79
+#: ../src/docky_control/2.0/hamster_control.py:94
+#: ../src/docky_control/2.1/hamster_control.py:79
+#: ../src/docky_control/2.1/hamster_control.py:94
 msgid "Overview"
 msgstr "סקירה"
 
@@ -246,15 +244,15 @@ msgstr "סטטיסטיקות"
 msgid "Sto_p tracking"
 msgstr "ה_פסקת המעקב"
 
-#: ../data/hamster.ui.h:11
+#: ../data/hamster.ui.h:10
 msgid "Today"
 msgstr "היום"
 
-#: ../data/hamster.ui.h:12
+#: ../data/hamster.ui.h:11
 msgid "_Edit"
 msgstr "ע_ריכה"
 
-#: ../data/hamster.ui.h:14
+#: ../data/hamster.ui.h:13
 msgid "_Tracking"
 msgstr "_מעקב"
 
@@ -274,13 +272,13 @@ msgstr "אין נתונים בפרק זמן זה"
 msgid "Show Statistics"
 msgstr "הצגת סטטיסטיקה"
 
-#: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:211
-#: ../src/hamster/reports.py:315 ../src/hamster-time-tracker:45
+#: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:215
+#: ../src/hamster/reports.py:355 ../src/hamster-time-tracker:48
 msgid "Tags"
 msgstr "תויות"
 
-#: ../data/overview.ui.h:2 ../src/hamster/applet.py:205
-#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:313
+#: ../data/overview.ui.h:2 ../src/hamster/applet.py:209
+#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:353
 #: ../src/hamster-time-tracker:39
 msgid "Activity"
 msgstr "פעילות"
@@ -313,7 +311,7 @@ msgstr "הסר"
 msgid "Save report..."
 msgstr "שמירת דיווח..."
 
-#: ../data/overview.ui.h:10 ../data/stats.ui.h:3
+#: ../data/overview.ui.h:10 ../data/stats.ui.h:3 ../src/hamster/reports.py:345
 msgid "Totals"
 msgstr "סך הכל"
 
@@ -441,14 +439,17 @@ msgstr "מתחיל ומסתיים"
 msgid "Year:"
 msgstr "שנה:"
 
-#: ../src/docky_control/hamster_control.py:71 ../src/hamster/applet.py:298
-#: ../src/hamster/applet.py:321 ../src/hamster/applet.py:410
-#: ../src/hamster-time-tracker:165 ../src/hamster-time-tracker:232
+#: ../src/docky_control/2.0/hamster_control.py:71
+#: ../src/docky_control/2.1/hamster_control.py:75 ../src/hamster/applet.py:302
+#: ../src/hamster/applet.py:325 ../src/hamster/applet.py:414
+#: ../src/hamster-time-tracker:168 ../src/hamster-time-tracker:232
 msgid "No activity"
 msgstr "אין פעילות"
 
-#: ../src/docky_control/hamster_control.py:81
-#: ../src/docky_control/hamster_control.py:95
+#: ../src/docky_control/2.0/hamster_control.py:81
+#: ../src/docky_control/2.0/hamster_control.py:95
+#: ../src/docky_control/2.1/hamster_control.py:81
+#: ../src/docky_control/2.1/hamster_control.py:95
 msgid "Preferences"
 msgstr "העדפות"
 
@@ -471,73 +472,74 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/hamster/applet.py:369
+#: ../src/hamster/applet.py:375
 #, python-format
 msgid "%(category)s: %(duration)s"
 msgstr "%(category)s: %(duration)s"
 
 #. duration in main drop-down per category in hours
-#: ../src/hamster/applet.py:372
+#: ../src/hamster/applet.py:378
 #, python-format
 msgid "%sh"
 msgstr "%s שעות"
 
-#: ../src/hamster/applet.py:393 ../src/hamster/db.py:231
-#: ../src/hamster/db.py:241 ../src/hamster/db.py:297 ../src/hamster/db.py:653
-#: ../src/hamster/edit_activity.py:54 ../src/hamster/preferences.py:56
-#: ../src/hamster/reports.py:61 ../src/hamster/reports.py:99
-#: ../src/hamster/reports.py:223 ../src/hamster-time-tracker:216
+#: ../src/hamster/applet.py:399 ../src/hamster/db.py:286
+#: ../src/hamster/db.py:296 ../src/hamster/db.py:352 ../src/hamster/db.py:682
+#: ../src/hamster/db.py:865 ../src/hamster/edit_activity.py:54
+#: ../src/hamster/preferences.py:56 ../src/hamster/reports.py:61
+#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:225
+#: ../src/hamster-time-tracker:218
 msgid "Unsorted"
 msgstr "לא ממוין"
 
-#: ../src/hamster/applet.py:401 ../src/hamster-time-tracker:160
+#: ../src/hamster/applet.py:405 ../src/hamster-time-tracker:163
 #: ../src/hamster-time-tracker:223
 msgid "Just started"
 msgstr "רק התחיל"
 
-#: ../src/hamster/applet.py:638 ../src/hamster-time-tracker:370
+#: ../src/hamster/applet.py:640 ../src/hamster-time-tracker:369
 msgid "Changed activity"
 msgstr "פעילות שהשתנתה"
 
-#: ../src/hamster/applet.py:639 ../src/hamster-time-tracker:371
+#: ../src/hamster/applet.py:641 ../src/hamster-time-tracker:370
 #, c-format, python-format
 msgid "Switched to '%s'"
 msgstr "הוחלף ל־'%s'"
 
 #. defaults
-#: ../src/hamster/db.py:870
+#: ../src/hamster/db.py:957
 msgid "Work"
 msgstr "עבודה"
 
-#: ../src/hamster/db.py:871
+#: ../src/hamster/db.py:958
 msgid "Reading news"
 msgstr "קורא חדשות"
 
-#: ../src/hamster/db.py:872
+#: ../src/hamster/db.py:959
 msgid "Checking stocks"
 msgstr "בודק מניות"
 
-#: ../src/hamster/db.py:873
+#: ../src/hamster/db.py:960
 msgid "Super secret project X"
 msgstr "פרוייקט סופר סודי S"
 
-#: ../src/hamster/db.py:874
+#: ../src/hamster/db.py:961
 msgid "World domination"
 msgstr "שליטה עולמית"
 
-#: ../src/hamster/db.py:876
+#: ../src/hamster/db.py:963
 msgid "Day-to-day"
 msgstr "יום יומי"
 
-#: ../src/hamster/db.py:877
+#: ../src/hamster/db.py:964
 msgid "Lunch"
 msgstr "ארוחת צהריים"
 
-#: ../src/hamster/db.py:878
+#: ../src/hamster/db.py:965
 msgid "Watering flowers"
 msgstr "השקיית פרחים"
 
-#: ../src/hamster/db.py:879
+#: ../src/hamster/db.py:966
 msgid "Doing handstands"
 msgstr "עמידת ידיים"
 
@@ -545,12 +547,12 @@ msgstr "עמידת ידיים"
 msgid "Update activity"
 msgstr "עדכן פעילות"
 
-#: ../src/hamster/overview_activities.py:92
+#: ../src/hamster/overview_activities.py:90
 msgctxt "overview list"
 msgid "%A, %b %d"
 msgstr "%A, %b %d"
 
-#: ../src/hamster/overview_totals.py:167
+#: ../src/hamster/overview_totals.py:161
 #, python-format
 msgid "%s hours tracked total"
 msgstr "בוצע מעקב אחרי %s שעות סך הכול"
@@ -564,26 +566,26 @@ msgstr "ללא"
 msgid "Name"
 msgstr "שם"
 
-#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:314
+#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:354
 msgid "Category"
 msgstr "קטגוריה"
 
-#: ../src/hamster/preferences.py:627
+#: ../src/hamster/preferences.py:628
 msgid "New category"
 msgstr "קטגוריה חדשה"
 
-#: ../src/hamster/preferences.py:640
+#: ../src/hamster/preferences.py:641
 msgid "New activity"
 msgstr "פעילות חדשה"
 
 #. notify interval slider value label
-#: ../src/hamster/preferences.py:691
+#: ../src/hamster/preferences.py:692
 #, python-format
 msgid "%(interval_minutes)d minutes"
 msgstr "%(interval_minutes)d דקות"
 
 #. notify interval slider value label
-#: ../src/hamster/preferences.py:694
+#: ../src/hamster/preferences.py:695
 msgid "Never"
 msgstr "לעולם לא"
 
@@ -651,75 +653,79 @@ msgstr "יומן פעילות עבור %(start_B)s %(start_d)s‏ – %(end_d)s,
 #. date column format for each row in HTML report
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/reports.py:232 ../src/hamster/reports.py:294
+#: ../src/hamster/reports.py:234 ../src/hamster/reports.py:296
 msgctxt "html report"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
 
-#: ../src/hamster/reports.py:304
+#: ../src/hamster/reports.py:336
+msgid "Total"
+msgstr "סך הכול"
+
+#: ../src/hamster/reports.py:343
 msgid "Totals by Day"
 msgstr "סך הכול לפי יום"
 
-#: ../src/hamster/reports.py:305
+#: ../src/hamster/reports.py:344
 msgid "Activity Log"
 msgstr "יומן הפעילות"
 
-#: ../src/hamster/reports.py:307
+#: ../src/hamster/reports.py:347
 msgid "totals by activity"
 msgstr "סך הכול לפי פעילות"
 
-#: ../src/hamster/reports.py:308
+#: ../src/hamster/reports.py:348
 msgid "totals by category"
 msgstr "סך הכול לפי קטגוריה"
 
-#: ../src/hamster/reports.py:310
+#: ../src/hamster/reports.py:350
 msgid "Show:"
 msgstr "הצגה:"
 
-#: ../src/hamster/reports.py:312
+#: ../src/hamster/reports.py:352
 msgid "Date"
 msgstr "תאריך"
 
-#: ../src/hamster/reports.py:316
+#: ../src/hamster/reports.py:356
 msgid "Start"
 msgstr "התחלה"
 
-#: ../src/hamster/reports.py:317
+#: ../src/hamster/reports.py:357
 msgid "End"
 msgstr "סיום"
 
-#: ../src/hamster/reports.py:318
+#: ../src/hamster/reports.py:358
 msgid "Duration"
 msgstr "משך"
 
-#: ../src/hamster/reports.py:319
+#: ../src/hamster/reports.py:359
 msgid "Description"
 msgstr "תיאור"
 
-#: ../src/hamster/reports.py:322
+#: ../src/hamster/reports.py:362
 msgid "Show template"
 msgstr "הצגת התבנית"
 
-#: ../src/hamster/reports.py:323
+#: ../src/hamster/reports.py:363
 #, python-format
 msgid "You can override it by storing your version in %(home_folder)s"
 msgstr "ניתן לשכתב עליהן על ידי שמירת הגרסה שלך תחת %(home_folder)s"
 
-#: ../src/hamster-time-tracker:158
+#: ../src/hamster-time-tracker:161
 #, c-format
 msgid "Working on <b>%s</b>"
 msgstr "עובד על <b>%s</b>"
 
-#: ../src/hamster-time-tracker:488
+#: ../src/hamster-time-tracker:489
 msgid "Hamster time tracker. Usage:"
 msgstr "מעקב אחר הזמן עם Hamster. שימוש:"
 
-#: ../src/hamster/stats.py:88
+#: ../src/hamster/stats.py:89
 msgctxt "years"
 msgid "All"
 msgstr "הכול"
 
-#: ../src/hamster/stats.py:164
+#: ../src/hamster/stats.py:166
 msgid ""
 "There is no data to generate statistics yet.\n"
 "A week of usage would be nice!"
@@ -727,14 +733,14 @@ msgstr ""
 "אין עדיין די נתונים ליצירת סטטיסטיקה.\n"
 "שבוע של שימוש לא יזיק!"
 
-#: ../src/hamster/stats.py:167
+#: ../src/hamster/stats.py:169
 msgid "Collecting data — check back after a week has passed!"
 msgstr "נאספים נתונים — יש לבדוק שוב לאחר שעבר שבוע!"
 
 #. date format for the first record if the year has not been selected
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:318
+#: ../src/hamster/stats.py:320
 msgctxt "first record"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
@@ -742,17 +748,17 @@ msgstr "%b %d, %Y"
 #. date of first record when year has been selected
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:323
+#: ../src/hamster/stats.py:325
 msgctxt "first record"
 msgid "%b %d"
 msgstr "%b %d"
 
-#: ../src/hamster/stats.py:325
+#: ../src/hamster/stats.py:327
 #, python-format
 msgid "First activity was recorded on %s."
 msgstr "הפעילות הראשונה הוקלטה ב־%s"
 
-#: ../src/hamster/stats.py:334 ../src/hamster/stats.py:338
+#: ../src/hamster/stats.py:336 ../src/hamster/stats.py:340
 #, python-format
 msgid "%(num)s year"
 msgid_plural "%(num)s years"
@@ -760,7 +766,7 @@ msgstr[0] "שנה אחת"
 msgstr[1] "%(num)s שנים"
 
 #. FIXME: difficult string to properly pluralize
-#: ../src/hamster/stats.py:343
+#: ../src/hamster/stats.py:345
 #, python-format
 msgid ""
 "Time tracked so far is %(human_days)s human days (%(human_years)s) or %"
@@ -772,12 +778,12 @@ msgstr ""
 #. How the date of the longest activity should be displayed in statistics
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:361
+#: ../src/hamster/stats.py:363
 msgctxt "date of the longest activity"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
 
-#: ../src/hamster/stats.py:366
+#: ../src/hamster/stats.py:368
 #, python-format
 msgid "Longest continuous work happened on %(date)s and was %(hours)s hour."
 msgid_plural ""
@@ -786,18 +792,18 @@ msgstr[0] "זמן העבודה הממושך ביותר קרה ב־%(date)s וא�
 msgstr[1] "זמן העבודה הממושך ביותר קרה ב־%(date)s וארך %(hours)s שעות."
 
 #. total records (in selected scope)
-#: ../src/hamster/stats.py:374
+#: ../src/hamster/stats.py:376
 #, python-format
 msgid "There is %s record."
 msgid_plural "There are %s records."
 msgstr[0] "ישנה רשומה אחת."
 msgstr[1] "ישנן %s רשומות."
 
-#: ../src/hamster/stats.py:394
+#: ../src/hamster/stats.py:396
 msgid "Hamster would like to observe you some more!"
 msgstr "Hamster מעוניין להסיק כלפיכם מסקנות נוספות!"
 
-#: ../src/hamster/stats.py:396
+#: ../src/hamster/stats.py:398
 #, python-format
 msgid ""
 "With %s percent of all facts starting before 9am, you seem to be an early "
@@ -805,14 +811,14 @@ msgid ""
 msgstr ""
 "בגלל ש־%s אחוזים מכלל המשימות מתחילים לפני 9 בבוקר אתם נראים כמו משכימי קום."
 
-#: ../src/hamster/stats.py:399
+#: ../src/hamster/stats.py:401
 #, python-format
 msgid ""
 "With %s percent of all facts starting after 11pm, you seem to be a night owl."
 msgstr ""
 "בגלל ש־%s אחוזים מכלל המשימות מתחילים לאחר 11 בלילה אתם נראים כמו פרפר לילה."
 
-#: ../src/hamster/stats.py:402
+#: ../src/hamster/stats.py:404
 #, python-format
 msgid ""
 "With %s percent of all tasks being shorter than 15 minutes, you seem to be a "
@@ -897,6 +903,9 @@ msgstr "iCal"
 #: ../src/hamster/widgets/reportchooserdialog.py:97
 msgid "Time track"
 msgstr "מעקב אחרי הזמן"
+
+#~ msgid "Tell me more"
+#~ msgstr "ספרו לי עוד"
 
 #~ msgid "Project Hamster desktop time tracking"
 #~ msgstr "מיזם Hamster מעקב זמנים לשולחן העבודה"
