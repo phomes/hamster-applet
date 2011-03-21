@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hamster-applet.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-31 22:14+0300\n"
+"POT-Creation-Date: 2011-03-21 02:14+0200\n"
 "PO-Revision-Date: 2010-08-28 16:01+0200\n"
 "Last-Translator: Michael Kotsarinis <mk73628@hotmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
@@ -277,12 +277,12 @@ msgid "Show Statistics"
 msgstr "Εμφάνιση στατιστικών"
 
 #: ../data/overview_totals.ui.h:5 ../src/hamster/applet.py:215
-#: ../src/hamster/reports.py:314 ../src/hamster-time-tracker:48
+#: ../src/hamster/reports.py:355 ../src/hamster-time-tracker:48
 msgid "Tags"
 msgstr "Ετικέτες"
 
 #: ../data/overview.ui.h:2 ../src/hamster/applet.py:209
-#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:312
+#: ../src/hamster/preferences.py:193 ../src/hamster/reports.py:353
 #: ../src/hamster-time-tracker:39
 msgid "Activity"
 msgstr "Δραστηριότητα"
@@ -315,7 +315,7 @@ msgstr "Απομάκρυνση"
 msgid "Save report..."
 msgstr "Αποθήκευση αναφοράς"
 
-#: ../data/overview.ui.h:10 ../data/stats.ui.h:3
+#: ../data/overview.ui.h:10 ../data/stats.ui.h:3 ../src/hamster/reports.py:345
 msgid "Totals"
 msgstr "Συνολικά"
 
@@ -498,7 +498,7 @@ msgstr "%sh"
 #: ../src/hamster/db.py:296 ../src/hamster/db.py:352 ../src/hamster/db.py:682
 #: ../src/hamster/db.py:865 ../src/hamster/edit_activity.py:54
 #: ../src/hamster/preferences.py:56 ../src/hamster/reports.py:61
-#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:222
+#: ../src/hamster/reports.py:99 ../src/hamster/reports.py:225
 #: ../src/hamster-time-tracker:218
 msgid "Unsorted"
 msgstr "Αταξινόμητα"
@@ -577,7 +577,7 @@ msgstr "Καμμία"
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:313
+#: ../src/hamster/preferences.py:138 ../src/hamster/reports.py:354
 msgid "Category"
 msgstr "Κατηγορία"
 
@@ -635,7 +635,7 @@ msgstr "περιγραφή"
 msgid "tags"
 msgstr "ετικέτες"
 
-#: ../src/hamster/reports.py:173
+#: ../src/hamster/reports.py:174
 #, python-format
 msgid ""
 "Activity log for %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %(end_d)s, "
@@ -644,19 +644,19 @@ msgstr ""
 "Επισκόπηση για %(start_B)s %(start_d)s, %(start_Y)s – %(end_B)s %(end_d)s, %"
 "(end_Y)s"
 
-#: ../src/hamster/reports.py:175
+#: ../src/hamster/reports.py:176
 #, python-format
 msgid ""
 "Activity log for %(start_B)s %(start_d)s – %(end_B)s %(end_d)s, %(end_Y)s"
 msgstr ""
 "Επισκόπηση για %(start_B)s %(start_d)s – %(end_B)s %(end_d)s, %(end_Y)s"
 
-#: ../src/hamster/reports.py:177
+#: ../src/hamster/reports.py:178
 #, python-format
 msgid "Activity log for %(start_B)s %(start_d)s, %(start_Y)s"
 msgstr "Επισκόπηση για %(start_B)s %(start_d)s, %(start_Y)s"
 
-#: ../src/hamster/reports.py:179
+#: ../src/hamster/reports.py:180
 #, python-format
 msgid "Activity log for %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
 msgstr "Επισκόπηση για %(start_B)s %(start_d)s – %(end_d)s, %(end_Y)s"
@@ -664,56 +664,60 @@ msgstr "Επισκόπηση για %(start_B)s %(start_d)s – %(end_d)s, %(end
 #. date column format for each row in HTML report
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/reports.py:231 ../src/hamster/reports.py:293
+#: ../src/hamster/reports.py:234 ../src/hamster/reports.py:296
 msgctxt "html report"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
 
-#: ../src/hamster/reports.py:303
+#: ../src/hamster/reports.py:336
+msgid "Total"
+msgstr "Συνολικά"
+
+#: ../src/hamster/reports.py:343
 msgid "Totals by Day"
 msgstr "Σύνολα κατά ημέρα"
 
-#: ../src/hamster/reports.py:304
+#: ../src/hamster/reports.py:344
 msgid "Activity Log"
 msgstr "Αρχείο καταγραφής δραστηριοτήτων"
 
-#: ../src/hamster/reports.py:306
+#: ../src/hamster/reports.py:347
 msgid "totals by activity"
 msgstr "σύνολα κατά δραστηριότητα"
 
-#: ../src/hamster/reports.py:307
+#: ../src/hamster/reports.py:348
 msgid "totals by category"
 msgstr "σύνολα κατά κατηγορία"
 
-#: ../src/hamster/reports.py:309
+#: ../src/hamster/reports.py:350
 msgid "Show:"
 msgstr "Προβολή:"
 
-#: ../src/hamster/reports.py:311
+#: ../src/hamster/reports.py:352
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/hamster/reports.py:315
+#: ../src/hamster/reports.py:356
 msgid "Start"
 msgstr "Έναρξη"
 
-#: ../src/hamster/reports.py:316
+#: ../src/hamster/reports.py:357
 msgid "End"
 msgstr "Τέλος"
 
-#: ../src/hamster/reports.py:317
+#: ../src/hamster/reports.py:358
 msgid "Duration"
 msgstr "Διάρκεια"
 
-#: ../src/hamster/reports.py:318
+#: ../src/hamster/reports.py:359
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: ../src/hamster/reports.py:321
+#: ../src/hamster/reports.py:362
 msgid "Show template"
 msgstr "Προβολή προτύπου"
 
-#: ../src/hamster/reports.py:322
+#: ../src/hamster/reports.py:363
 #, python-format
 msgid "You can override it by storing your version in %(home_folder)s"
 msgstr ""
@@ -733,7 +737,7 @@ msgctxt "years"
 msgid "All"
 msgstr "Όλα"
 
-#: ../src/hamster/stats.py:165
+#: ../src/hamster/stats.py:166
 msgid ""
 "There is no data to generate statistics yet.\n"
 "A week of usage would be nice!"
@@ -741,14 +745,14 @@ msgstr ""
 "Δεν υπάρχουν αρκετά δεδομένα για την δημιουργία στατιστικών.\n"
 "Χρειάζεται τουλάχιστον μια εβδομάδα εργασίας!"
 
-#: ../src/hamster/stats.py:168
+#: ../src/hamster/stats.py:169
 msgid "Collecting data — check back after a week has passed!"
 msgstr "Γίνεται συλλογή δεδομένων — ελέγξτε ξανά όταν ολοκληρωθεί η εβδομάδα!"
 
 #. date format for the first record if the year has not been selected
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:319
+#: ../src/hamster/stats.py:320
 msgctxt "first record"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
@@ -756,17 +760,17 @@ msgstr "%b %d, %Y"
 #. date of first record when year has been selected
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:324
+#: ../src/hamster/stats.py:325
 msgctxt "first record"
 msgid "%b %d"
 msgstr "%b %d"
 
-#: ../src/hamster/stats.py:326
+#: ../src/hamster/stats.py:327
 #, python-format
 msgid "First activity was recorded on %s."
 msgstr "Η πρώτη δραστηριότητα καταγράφηκε στις %s."
 
-#: ../src/hamster/stats.py:335 ../src/hamster/stats.py:339
+#: ../src/hamster/stats.py:336 ../src/hamster/stats.py:340
 #, python-format
 msgid "%(num)s year"
 msgid_plural "%(num)s years"
@@ -774,7 +778,7 @@ msgstr[0] "%(num)s έτος"
 msgstr[1] "%(num)s έτη"
 
 #. FIXME: difficult string to properly pluralize
-#: ../src/hamster/stats.py:344
+#: ../src/hamster/stats.py:345
 #, python-format
 msgid ""
 "Time tracked so far is %(human_days)s human days (%(human_years)s) or %"
@@ -786,12 +790,12 @@ msgstr ""
 #. How the date of the longest activity should be displayed in statistics
 #. Using python datetime formatting syntax. See:
 #. http://docs.python.org/library/time.html#time.strftime
-#: ../src/hamster/stats.py:362
+#: ../src/hamster/stats.py:363
 msgctxt "date of the longest activity"
 msgid "%b %d, %Y"
 msgstr "%b %d, %Y"
 
-#: ../src/hamster/stats.py:367
+#: ../src/hamster/stats.py:368
 #, python-format
 msgid "Longest continuous work happened on %(date)s and was %(hours)s hour."
 msgid_plural ""
@@ -804,18 +808,18 @@ msgstr[1] ""
 "και διήρκεσε %(hours)s ώρες."
 
 #. total records (in selected scope)
-#: ../src/hamster/stats.py:375
+#: ../src/hamster/stats.py:376
 #, python-format
 msgid "There is %s record."
 msgid_plural "There are %s records."
 msgstr[0] "Υπάρχει %s εγγραφή"
 msgstr[1] "Υπάρχουν %s εγγραφές"
 
-#: ../src/hamster/stats.py:395
+#: ../src/hamster/stats.py:396
 msgid "Hamster would like to observe you some more!"
 msgstr "Το Hamster θα ήθελε να σας παρακολουθήσει λίγο ακόμα!"
 
-#: ../src/hamster/stats.py:397
+#: ../src/hamster/stats.py:398
 #, python-format
 msgid ""
 "With %s percent of all facts starting before 9am, you seem to be an early "
@@ -824,7 +828,7 @@ msgstr ""
 "Με ποσοστό %s  από όλες τις εργασίες να έχουν ξεκινήσει πριν από τις 9πμ,  "
 "φαίνεται ότι είστε πρωινός τύπος."
 
-#: ../src/hamster/stats.py:400
+#: ../src/hamster/stats.py:401
 #, python-format
 msgid ""
 "With %s percent of all facts starting after 11pm, you seem to be a night owl."
@@ -832,7 +836,7 @@ msgstr ""
 "Με ποσοστό %s  από όλες τις εργασίες να έχουν ξεκινήσει μετά από τις 11μμ,  "
 "φαίνεται ότι είστε μια νυκτερινή κουκουβάγια."
 
-#: ../src/hamster/stats.py:403
+#: ../src/hamster/stats.py:404
 #, python-format
 msgid ""
 "With %s percent of all tasks being shorter than 15 minutes, you seem to be a "
