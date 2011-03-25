@@ -17,15 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with Project Hamster.  If not, see <http://www.gnu.org/licenses/>.
 
-"""
-gconf part of this code copied from Gimmie (c) Alex Gravely via Conduit (c) John Stowers, 2006
-License: GPLv2
-"""
+try:
+    import ConfigParser as configparser
+except ImportError:
+    import configparser
 
-import gconf
 import os
 from client import Storage
-from xdg.BaseDirectory import xdg_data_home
 import logging
 import datetime as dt
 import gobject, gtk
@@ -57,7 +55,7 @@ class RuntimeStore(Singleton):
             import defs
             self.data_dir = os.path.join(defs.DATA_DIR, "hamster-applet")
             self.version = defs.VERSION
-        except:
+        except ImportError:
             # if defs is not there, we are running from sources
             module_dir = os.path.dirname(os.path.realpath(__file__))
             self.data_dir = os.path.join(module_dir, '..', '..', 'data')
@@ -68,8 +66,13 @@ class RuntimeStore(Singleton):
 
         self.storage = Storage()
 
+        if os.environ.has_key('APPDATA'):
+            self.home_data_dir = os.path.realpath(os.path.join(os.environ['APPDATA'], "hamster-applet"))
+        else:
+            logging.error("APPDATA variable is not set")
+            raise Exception("APPDATA environment variable is not defined")
 
-        self.home_data_dir = os.path.realpath(os.path.join(xdg_data_home, "hamster-applet"))
+            
 
     @property
     def art_dir(self):
@@ -153,13 +156,13 @@ def load_ui_file(name):
     ui.add_from_file(os.path.join(runtime.data_dir, name))
     return ui
 
-class GConfStore(gobject.GObject, Singleton):
+class INIStore(gobject.GObject, Singleton):
     """
-    Settings implementation which stores settings in GConf
-    Snatched from the conduit project (http://live.gnome.org/Conduit)
+    Settings implementation which stores settings in an INI file.
     """
-    GCONF_DIR = "/apps/hamster-applet/"
+    SECTION = 'Settings'    # Section to read/store settings in INI file
     VALID_KEY_TYPES = (bool, str, int, list, tuple)
+    #TODO: Remove non-Windows related settings
     DEFAULTS = {
         'enable_timeout'              :   False,       # Should hamster stop tracking on idle
         'stop_on_shutdown'            :   False,       # Should hamster stop tracking on shutdown
@@ -180,10 +183,33 @@ class GConfStore(gobject.GObject, Singleton):
         "conf-changed": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT))
     }
     def __init__(self):
+        self._client = configparser.ConfigParser()
+
+        #TODO: Store file in home_data_dir
+        self.config = "hamster.ini"
+        if not os.path.isfile(self.config):
+            self._client.add_section(self.SECTION)
+            self._flush()
+        try:
+            fcfg = open(self.config,'r')
+            self._client.readfp(fcfg)
+            fcfg.close()
+        except IOError,e:
+            log.error("Error reading configurationfile: %s" % e)
+            raise
+        
         gobject.GObject.__init__(self)
-        self._client = gconf.client_get_default()
-        self._client.add_dir(self.GCONF_DIR[:-1], gconf.CLIENT_PRELOAD_RECURSIVE)
         self._notifications = []
+
+    def _flush(self):
+        """Write configuration values to INI file"""
+        try:
+            fcfg = open(self.config,'w')
+            self._client.write(fcfg)
+            fcfg.close()
+        except IOError,e:
+            log.error("Error writing to configuration file: %s" % e)
+            raise
 
     def _fix_key(self, key):
         """
@@ -194,43 +220,50 @@ class GConfStore(gobject.GObject, Singleton):
         @returns: The fixed key
         @rtype: C{string}
         """
-        if not key.startswith(self.GCONF_DIR):
-            return self.GCONF_DIR + key
-        else:
-            return key
+        #TODO: Remove calls to this function
+        return key
 
-    def _key_changed(self, client, cnxn_id, entry, data=None):
+#    def _key_changed(self, client, cnxn_id, entry, data=None):
+    def _key_changed(self, key):
         """
         Callback when a gconf key changes
         """
-        key = self._fix_key(entry.key)[len(self.GCONF_DIR):]
-        value = self._get_value(entry.value, self.DEFAULTS[key])
+        return #TODO: Fix or remove calls
+        #key = self._fix_key(entry.key)[len(self.GCONF_DIR):]
+        #value = self._get_value(entry.value, self.DEFAULTS[key])
 
-        self.emit('conf-changed', key, value)
+        #self.emit('conf-changed', key, value)
 
 
-    def _get_value(self, value, default):
-        """calls appropriate gconf function by the default value"""
+    def _get_value(self, key, default):
+        """calls appropriate configparser function by the default value"""
         vtype = type(default)
-
-        if vtype is bool:
-            return value.get_bool()
-        elif vtype is str:
-            return value.get_string()
-        elif vtype is int:
-            return value.get_int()
-        elif vtype in (list, tuple):
-            l = []
-            for i in value.get_list():
-                l.append(i.get_string())
-            return l
+        try:
+            if vtype is bool:
+                return self._client.getboolean(self.SECTION, key)
+            elif vtype is str:
+                return self._client.get(self.SECTION, key)
+            elif vtype is int:
+                return self._client.getint(self.SECTION, key)
+            elif vtype in (list, tuple):
+                l = []
+                temp = self._client.get(self.SECTION, key)
+                for i in temp.split(','):
+                    l.append(i.strip())
+                return l
+        except configparser.NoOptionError:
+            return None
+        except TypeError:
+            return None
+        except AttributeError:
+            return None
 
         return None
 
     def get(self, key, default=None):
         """
         Returns the value of the key or the default value if the key is
-        not yet in gconf
+        not yet in config
         """
 
         #function arguments override defaults
@@ -248,19 +281,16 @@ class GConfStore(gobject.GObject, Singleton):
             return None
 
         #for gconf refer to the full key path
-        key = self._fix_key(key)
+        #key = self._fix_key(key)
 
-        if key not in self._notifications:
-            self._client.notify_add(key, self._key_changed)
-            self._notifications.append(key)
+        #if key not in self._notifications:
+        #    self._notifications.append(key)
 
-        value = self._client.get(key)
+        value = self._get_value(key, default)
         if value is None:
             self.set(key, default)
             return default
-
-        value = self._get_value(value, default)
-        if value is not None:
+        elif value is not None:
             return value
 
         log.warn("Unknown gconf key: %s" % key)
@@ -282,20 +312,21 @@ class GConfStore(gobject.GObject, Singleton):
             return False
 
         #for gconf refer to the full key path
-        key = self._fix_key(key)
+        #key = self._fix_key(key)
 
         if vtype is bool:
-            self._client.set_bool(key, value)
+            self._client.set(self.SECTION, key, value)
         elif vtype is str:
-            self._client.set_string(key, value)
+            self._client.set(self.SECTION, key, value)
         elif vtype is int:
-            self._client.set_int(key, value)
+            self._client.set(self.SECTION, key, value)
         elif vtype in (list, tuple):
-            #Save every value as a string
-            strvalues = [str(i) for i in value]
-            self._client.set_list(key, gconf.VALUE_STRING, strvalues)
+            # flatten list/tuple
+            self._client.set(self.SECTION, key, ",".join([str(i) for i in value]))
+
+        self._flush()
 
         return True
 
 
-conf = GConfStore()
+conf = INIStore()

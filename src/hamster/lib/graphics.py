@@ -1643,6 +1643,8 @@ class Scene(gtk.DrawingArea):
         if self.tweener:
             self.tweener.update(delta)
 
+        if delta <= delta:
+            delta = 1
         self.fps = 1 / delta
 
 

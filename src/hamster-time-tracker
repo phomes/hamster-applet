@@ -23,7 +23,6 @@ import logging
 import datetime as dt
 
 import gtk, gobject
-import dbus, dbus.service, dbus.mainloop.glib
 
 class ProjectHamster(object):
     def __init__(self, window_name = None):
@@ -58,16 +57,6 @@ class ProjectHamster(object):
 
         self.get_widget("today_box").add(self.treeview)
         self.new_name.grab_focus()
-
-        # DBus Setup
-        try:
-            dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
-            # Set up connection to the screensaver
-            self.dbusIdleListener = idle.DbusIdleListener()
-            self.dbusIdleListener.connect('idle-changed', self.on_idle_changed)
-
-        except dbus.DBusException, e:
-            logging.error("Can't init dbus: %s" % e)
 
         # configuration
         self.timeout_enabled = conf.get("enable_timeout")
@@ -151,8 +140,8 @@ class ProjectHamster(object):
             return True
 
     def check_user(self):
-        if not self.notification:
-            return
+#        if not self.notification:
+#            return
 
         if self.notify_interval <= 0 or self.notify_interval >= 121:
             return
@@ -174,7 +163,7 @@ class ProjectHamster(object):
                 message = _(u"No activity")
 
 
-        if message:
+        if self.notification and message:
             self.notification.update(_("Time Tracker"), message, "hamster-applet")
             self.notification.show()
 
@@ -281,7 +270,8 @@ class ProjectHamster(object):
     def on_menu_preferences_activate(self, menu_item):
         dialogs.prefs.show(self.window)
     def on_menu_help_contents_activate(self, *args):
-        gtk.show_uri(gtk.gdk.Screen(), "ghelp:hamster-applet", 0L)
+        #TODO: provide some help; maybe local HTML files and launch the default browser
+        #gtk.show_uri(gtk.gdk.Screen(), "ghelp:hamster-applet", 0L)
         trophies.unlock("basic_instructions")
 
 
@@ -302,8 +292,8 @@ class ProjectHamster(object):
             self.refresh_hamster()
         elif self.timeout_enabled and self.last_activity and \
              self.last_activity.end_time is None:
-
-            runtime.storage.stop_tracking(end_time = self.dbusIdleListener.getIdleFrom())
+                 #TODO: need a Windows way to get idle time
+                 runtime.storage.stop_tracking(end_time = dt.datetime.now())
 
     def on_workspace_changed(self, screen, previous_workspace):
         if not previous_workspace:
@@ -437,11 +427,11 @@ class ProjectHamster(object):
 
     def close_window(self, *args):
         # properly saving window state and position
-        maximized = self.window.get_window().get_state() & gtk.gdk.WINDOW_STATE_MAXIMIZED
+        maximized = self.window.get_window().get_state() == gtk.gdk.WINDOW_STATE_MAXIMIZED
         conf.set("standalone_window_maximized", maximized)
 
         # make sure to remember dimensions only when in normal state
-        if maximized == False and not self.window.get_window().get_state() & gtk.gdk.WINDOW_STATE_ICONIFIED:
+        if maximized == False and not self.window.get_window().get_state() == gtk.gdk.WINDOW_STATE_ICONIFIED:
             x, y = self.window.get_position()
             w, h = self.window.get_size()
             conf.set("standalone_window_box", [x, y, w, h])
@@ -451,16 +441,10 @@ class ProjectHamster(object):
 
 
 # maintain just one instance. this code feels hackish
-class WindowServer(dbus.service.Object):
-    __dbus_object_path__ = "/org/gnome/Hamster/WindowServer"
-
+class WindowServer(gobject.GObject):
     def __init__(self):
         self.app = None
-        self.bus = dbus.SessionBus()
-        bus_name = dbus.service.BusName("org.gnome.Hamster.WindowServer", bus=self.bus)
-        dbus.service.Object.__init__(self, bus_name, self.__dbus_object_path__)
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def main(self):
         if self.app:
             self.app.window.show()
@@ -468,19 +452,14 @@ class WindowServer(dbus.service.Object):
         else:
             self.app = ProjectHamster()
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def edit(self): dialogs.edit.show(self.app)
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def overview(self): dialogs.overview.show(self.app)
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def about(self): dialogs.about.show(self.app)
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def statistics(self): dialogs.stats.show(self.app)
 
-    @dbus.service.method("org.gnome.Hamster.WindowServer")
     def preferences(self): dialogs.prefs.show(self.app)
 
 
@@ -509,14 +488,6 @@ if __name__ == "__main__":
 
     from hamster.configuration import runtime, dialogs, conf, load_ui_file
 
-    # if there is windowserver hanging in dbus - call that and exit
-    bus = dbus.SessionBus()
-    if "org.gnome.Hamster.WindowServer" in dbus.SessionBus().list_names():
-        server = bus.get_object("org.gnome.Hamster.WindowServer", WindowServer.__dbus_object_path__)
-        getattr(server, window)()
-        sys.exit(0)
-
-
     # otherwise proceed and do all the import and everything
     gtk.gdk.threads_init()
     gtk.window_set_default_icon_name("hamster-applet")
@@ -539,4 +510,6 @@ if __name__ == "__main__":
 
 
     getattr(WindowServer(), window)()
+    gtk.gdk.threads_enter()
     gtk.main()
+    gtk.gdk.threads_leave()

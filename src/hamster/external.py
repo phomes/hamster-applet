@@ -21,7 +21,6 @@
 import logging
 from configuration import conf
 import gobject
-import dbus, dbus.mainloop.glib
 
 try:
     import evolution

@@ -395,11 +395,11 @@ class Overview(object):
 
     def close_window(self):
         # properly saving window state and position
-        maximized = self.window.get_window().get_state() & gtk.gdk.WINDOW_STATE_MAXIMIZED
+        maximized = self.window.get_window().get_state() == gtk.gdk.WINDOW_STATE_MAXIMIZED
         conf.set("overview_window_maximized", maximized)
 
         # make sure to remember dimensions only when in normal state
-        if maximized == False and not self.window.get_window().get_state() & gtk.gdk.WINDOW_STATE_ICONIFIED:
+        if maximized == False and not self.window.get_window().get_state() == gtk.gdk.WINDOW_STATE_ICONIFIED:
             x, y = self.window.get_position()
             w, h = self.window.get_size()
             conf.set("overview_window_box", [x, y, w, h])

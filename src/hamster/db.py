@@ -34,22 +34,19 @@ except ImportError:
 
 import os, time
 import datetime
-import storage
 from shutil import copy as copyfile
 import itertools
 import datetime as dt
 import gio
-from xdg.BaseDirectory import xdg_data_home
 
 from lib import stuff, trophies
 
-class Storage(storage.Storage):
+class Storage(object):
     con = None # Connection will be created on demand
-    def __init__(self, loop):
+    def __init__(self):
         """
         Delayed setup so we don't do everything at the same time
         """
-        storage.Storage.__init__(self, loop)
 
         self.__con = None
         self.__cur = None
@@ -84,7 +81,12 @@ class Storage(storage.Storage):
         self.run_fixtures()
 
     def __init_db_file(self):
-        home_data_dir = os.path.realpath(os.path.join(xdg_data_home, "hamster-applet"))
+        if os.environ.has_key('APPDATA'):
+            home_data_dir = os.path.realpath(os.path.join(os.environ['APPDATA'], "hamster-applet"))
+        else:
+            logging.error("APPDATA is not defined")
+            raise Exception("APPDATA environment variable is not defined")
+
         if not os.path.exists(home_data_dir):
             os.makedirs(home_data_dir, 0744)
 
@@ -161,6 +163,10 @@ class Storage(storage.Storage):
             return self.__get_tag_ids(tags)[0], True # all done, recurse
         else:
             return db_tags, changes
+    
+    def GetTagIds(self, tags):
+        tags, new_added = self.__get_tag_ids(tags)
+        return [(tag['id'], tag['name'], tag['autocomplete']) for tag in tags]
 
     def __update_autocomplete_tags(self, tags):
         tags = [tag.strip() for tag in tags.split(",") if tag.strip()]  # split by comma

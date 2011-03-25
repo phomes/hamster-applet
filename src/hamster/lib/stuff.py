@@ -33,6 +33,14 @@ import time
 import re
 import locale
 import os
+try:
+    import _winreg as winreg
+except ImportError:
+    try:
+        import winreg
+    except ImportError:
+        logging.warn("WARNING - Could not load Registry module.")
+        winreg = None
 
 def format_duration(minutes, human = True):
     """formats duration in a human readable format.
@@ -152,16 +160,13 @@ def locale_to_utf8(locale_str):
 
 def locale_first_weekday():
     """figure if week starts on monday or sunday"""
-    first_weekday = 6 #by default settle on monday
+    first_weekday = 1 #by default settle on monday
+    if not winreg: return first_weekday
 
     try:
-        process = os.popen("locale first_weekday week-1stday")
-        week_offset, week_start = process.read().split('\n')[:2]
-        process.close()
-        week_start = dt.date(*time.strptime(week_start, "%Y%m%d")[:3])
-        week_offset = dt.timedelta(int(week_offset) - 1)
-        beginning = week_start + week_offset
-        first_weekday = int(beginning.strftime("%w"))
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Control Panel\International")
+        value, vtype = winreg.QueryValueEx(key, "iFirstDayOfWeek")
+        first_weekday = (int(value)+1) % 7
     except:
         logging.warn("WARNING - Failed to get first weekday from locale")
 

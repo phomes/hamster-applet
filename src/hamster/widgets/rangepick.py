@@ -102,9 +102,11 @@ class RangePick(gtk.ToggleButton):
         end_cal.select_month(self.end_date.month - 1, self.end_date.year)
         end_cal.select_day(self.end_date.day)
 
+        self.popup.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
         self.popup.show_all()
         self.get_widget("day").grab_focus()
         self.set_active(True)
+
 
     def emit_range(self, range, start, end):
         self.hide()
