@@ -183,7 +183,7 @@ class INIStore(gobject.GObject, Singleton):
         "conf-changed": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT))
     }
     def __init__(self):
-        self._client = configparser.ConfigParser()
+        self._client = configparser.RawConfigParser()
 
         #TODO: Store file in home_data_dir
         self.config = "hamster.ini"
@@ -191,9 +191,7 @@ class INIStore(gobject.GObject, Singleton):
             self._client.add_section(self.SECTION)
             self._flush()
         try:
-            fcfg = open(self.config,'r')
-            self._client.readfp(fcfg)
-            fcfg.close()
+            self._client.read(self.config)
         except IOError,e:
             log.error("Error reading configurationfile: %s" % e)
             raise
@@ -202,11 +200,12 @@ class INIStore(gobject.GObject, Singleton):
         self._notifications = []
 
     def _flush(self):
-        """Write configuration values to INI file"""
+        """Write and re-read configuration values in INI file"""
         try:
             fcfg = open(self.config,'w')
             self._client.write(fcfg)
             fcfg.close()
+            self._client.read(self.config)
         except IOError,e:
             log.error("Error writing to configuration file: %s" % e)
             raise
@@ -222,18 +221,6 @@ class INIStore(gobject.GObject, Singleton):
         """
         #TODO: Remove calls to this function
         return key
-
-#    def _key_changed(self, client, cnxn_id, entry, data=None):
-    def _key_changed(self, key):
-        """
-        Callback when a gconf key changes
-        """
-        return #TODO: Fix or remove calls
-        #key = self._fix_key(entry.key)[len(self.GCONF_DIR):]
-        #value = self._get_value(entry.value, self.DEFAULTS[key])
-
-        #self.emit('conf-changed', key, value)
-
 
     def _get_value(self, key, default):
         """calls appropriate configparser function by the default value"""
@@ -326,6 +313,7 @@ class INIStore(gobject.GObject, Singleton):
 
         self._flush()
 
+        self.emit('conf-changed', key, value)
         return True
 
 
