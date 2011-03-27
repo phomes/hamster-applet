@@ -58,6 +58,10 @@ class ProjectHamster(object):
         self.get_widget("today_box").add(self.treeview)
         self.new_name.grab_focus()
 
+        #idle listener 
+        self.IdleListener = idle.IdleListener()
+        self.IdleListener.connect('idle-changed', self.on_idle_changed)
+
         # configuration
         self.timeout_enabled = conf.get("enable_timeout")
         self.notify_on_idle = conf.get("notify_on_idle")
@@ -285,15 +289,14 @@ class ProjectHamster(object):
 
     def on_idle_changed(self, event, state):
         # state values: 0 = active, 1 = idle
-
+        
         # refresh when we are out of idle
         # for example, instantly after coming back from suspend
         if state == 0:
             self.refresh_hamster()
         elif self.timeout_enabled and self.last_activity and \
              self.last_activity.end_time is None:
-                 #TODO: need a Windows way to get idle time
-                 runtime.storage.stop_tracking(end_time = dt.datetime.now())
+                 runtime.storage.stop_tracking(end_time = self.IdleListener.get_idle_from())
 
     def on_workspace_changed(self, screen, previous_workspace):
         if not previous_workspace:
