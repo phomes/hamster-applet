@@ -68,6 +68,8 @@ class RuntimeStore(Singleton):
 
         if os.environ.has_key('APPDATA'):
             self.home_data_dir = os.path.realpath(os.path.join(os.environ['APPDATA'], "hamster-applet"))
+            if not os.path.exists(self.home_data_dir):
+                os.makedirs(self.home_data_dir)
         else:
             logging.error("APPDATA variable is not set")
             raise Exception("APPDATA environment variable is not defined")
@@ -182,11 +184,14 @@ class INIStore(gobject.GObject, Singleton):
     __gsignals__ = {
         "conf-changed": (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT))
     }
-    def __init__(self):
+    def __init__(self, home_data_dir):
         self._client = configparser.RawConfigParser()
+        
+        if home_data_dir and os.path.exists(home_data_dir):
+            self.config = os.path.join(home_data_dir, "hamster.ini")
+        else:
+            self.config = "hamster.ini"
 
-        #TODO: Store file in home_data_dir
-        self.config = "hamster.ini"
         if not os.path.isfile(self.config):
             self._client.add_section(self.SECTION)
             self._flush()
@@ -197,7 +202,6 @@ class INIStore(gobject.GObject, Singleton):
             raise
         
         gobject.GObject.__init__(self)
-        self._notifications = []
 
     def _flush(self):
         """Write and re-read configuration values in INI file"""
@@ -267,12 +271,6 @@ class INIStore(gobject.GObject, Singleton):
             log.warn("Invalid key type: %s" % vtype)
             return None
 
-        #for gconf refer to the full key path
-        #key = self._fix_key(key)
-
-        #if key not in self._notifications:
-        #    self._notifications.append(key)
-
         value = self._get_value(key, default)
         if value is None:
             self.set(key, default)
@@ -298,9 +296,6 @@ class INIStore(gobject.GObject, Singleton):
             log.warn("Invalid key type: %s" % vtype)
             return False
 
-        #for gconf refer to the full key path
-        #key = self._fix_key(key)
-
         if vtype is bool:
             self._client.set(self.SECTION, key, value)
         elif vtype is str:
@@ -317,4 +312,4 @@ class INIStore(gobject.GObject, Singleton):
         return True
 
 
-conf = INIStore()
+conf = INIStore(runtime.home_data_dir)
