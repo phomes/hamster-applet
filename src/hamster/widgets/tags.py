@@ -272,7 +272,7 @@ class TagBox(graphics.Scene):
         for label in tags:
             tag = Tag(label)
             if label in self.selected_tags:
-                tag.tag.fill = (242, 229, 97)
+                tag.fill = (242, 229, 97)
             new_tags.append(tag)
 
         for tag in self.tags:
