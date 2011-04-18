@@ -157,7 +157,7 @@ class ProjectHamster(object):
             duration = delta.seconds /  60
 
             if duration and duration % self.notify_interval == 0:
-                message = _(u"Working on <b>%s</b>") % self.last_activity.name
+                message = _(u"Working on <b>%s</b>") % self.last_activity.activity
 
             self.get_widget("last_activity_duration").set_text(stuff.format_duration(duration) or _("Just started"))
 
