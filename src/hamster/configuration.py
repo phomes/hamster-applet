@@ -233,7 +233,10 @@ class INIStore(gobject.GObject, Singleton):
             if vtype is bool:
                 return self._client.getboolean(self.SECTION, key)
             elif vtype is str:
-                return self._client.get(self.SECTION, key)
+                temp = self._client.get(self.SECTION, key)
+                if not temp: 
+                    return None
+                return temp
             elif vtype is int:
                 return self._client.getint(self.SECTION, key)
             elif vtype in (list, tuple):
@@ -241,12 +244,16 @@ class INIStore(gobject.GObject, Singleton):
                 temp = self._client.get(self.SECTION, key)
                 for i in temp.split(','):
                     l.append(i.strip())
+                if not l: 
+                    return None
                 return l
         except configparser.NoOptionError:
             return None
         except TypeError:
             return None
         except AttributeError:
+            return None
+        except ValueError:
             return None
 
         return None
